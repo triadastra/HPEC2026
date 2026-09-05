@@ -36,9 +36,10 @@ The upstream FA code is included at its pinned revision; no submodule setup is n
 
 ## Dataset
 
-**Input release gap:** the published HF dataset is the older 28,292-series build;
-the checkpoints use 30,087 series and 1,343 commodities. `release.py data` detects
-and rejects this mismatch. See [REPRODUCING.md](REPRODUCING.md) before evaluation.
+The pinned HF dataset revision carries the corrected 30,087-series, 1,343-commodity
+lattice the checkpoints were trained on; `release.py data` verifies it against the
+recorded checksums. The earlier 28,292-series build is preserved under
+`processed/legacy_precorrection/` for inspection only. See [REPRODUCING.md](REPRODUCING.md).
 
 
 US Census foreign-trade port HS6 files (`PORTHS6MM`/`PORTHS6XM`), 2010–2025.

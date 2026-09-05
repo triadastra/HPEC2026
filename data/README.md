@@ -3,6 +3,9 @@
 The model and dataset repositories both use the name `Celsia/HPEC2026`.
 Use `repo_type="dataset"` for inputs and `repo_type="model"` for checkpoints.
 `SOURCE.json` pins each repository separately and records input checksums.
+The pinned dataset revision holds the corrected 30,087-series lattice; the
+pre-correction 28,292-series build sits under `processed/legacy_precorrection/`
+and is refused by the loader.
 
 ```bash
 python scripts/release.py data

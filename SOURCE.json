@@ -9,10 +9,19 @@
   "hf_revision": "51e064a2f8e1af1ff867794b5ce8aeeade4692cd",
   "dataset": {
     "repo_id": "Celsia/HPEC2026",
-    "revision": "47dd2a5f6be759562fa9c1e257bca50854e0fd6f",
+    "revision": "d3f61546516002a44f79962507422f47c4f80263",
     "files": {
-      "processed/census_lattice_9ch.npz": "9494ccceba13963dbcedb49f24d1a584d5cda2b8f59ce522f19576c3e0efdcc4",
-      "processed/census_lattice_9ch.json": "3de68e0de15b45e20fed65cbe2efc9041bd09a08502ceb1c06c8381dc6fcef0d"
+      "processed/census_lattice_9ch.npz": "ed768219506b3fbbda5aa1eb598affde8cf127f58982e295ad0ff3ebd13fba6e",
+      "processed/census_lattice_9ch.json": "baac89c01fe73c9cdb509e720711358210d7af7cd5fc7fb94d7875a7c9ca26d8"
+    },
+    "legacy_precorrection": {
+      "note": "28,292-series build with the cohort selected on all 192 months; kept for inspection only, the loader refuses it",
+      "path": "processed/legacy_precorrection/",
+      "revision_before_correction": "47dd2a5f6be759562fa9c1e257bca50854e0fd6f",
+      "files": {
+        "processed/legacy_precorrection/census_lattice_9ch.npz": "9494ccceba13963dbcedb49f24d1a584d5cda2b8f59ce522f19576c3e0efdcc4",
+        "processed/legacy_precorrection/census_lattice_9ch.json": "3de68e0de15b45e20fed65cbe2efc9041bd09a08502ceb1c06c8381dc6fcef0d"
+      }
     }
   }
 }

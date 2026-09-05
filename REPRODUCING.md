@@ -38,7 +38,7 @@ suite does not establish that CUDA kernels execute correctly.
 | Purpose | Repository type | Pinned revision |
 |---|---|---|
 | Checkpoints and saved results | [model](https://huggingface.co/Celsia/HPEC2026) | `51e064a2f8e1af1ff867794b5ce8aeeade4692cd` |
-| Input data and raw archives | [dataset](https://huggingface.co/datasets/Celsia/HPEC2026) | `47dd2a5f6be759562fa9c1e257bca50854e0fd6f` |
+| Input data and raw archives | [dataset](https://huggingface.co/datasets/Celsia/HPEC2026) | `d3f61546516002a44f79962507422f47c4f80263` |
 
 `checkpoint` accepts a run path relative to the model archive, including a
 session prefix where necessary. It checks membership in that session's manifest,
@@ -46,32 +46,35 @@ the completion fingerprint, checkpoint SHA-256, and fresh-session record where
 required. It loads tensors with `weights_only=True` on CPU. Downloads live under
 `outputs/hf/` and are ignored by Git. No upload or public visibility change occurs.
 
-### Input version mismatch — still unresolved
+### Input version — resolved 2026-09-06
 
-The dataset's published processed lattice has **28,292 series and 1,263
-commodities**. The completed model archive has **30,087 series and 1,343
-commodities**; the downloaded GRU's commodity embedding has 1,343 rows. The
-manuscript combines 30,087 series with 1,263 commodities. These descriptions
-must be reconciled with the actual corrected input before claiming complete
-reproduction of the paper.
+The dataset revision pinned above carries the corrected processed lattice:
+**30,087 series over a 1,343 × 14 × 2 grid**, with the cohort ranked and
+filtered on the 144 training months only (sidecar
+`cohort_selection.state_and_commodity_ranking = training_months_only`). It is
+the exact file instance the archived sweep trained on, copied from the
+training machine rather than rebuilt; the archived `gru_embeddings_1d_s947`
+checkpoint reproduces its logged test MSE (0.69195) on it, and its commodity
+embedding has the matching 1,343 rows. `SOURCE.json` records both checksums.
+
+The earlier 28,292-series / 1,263-commodity build selected its cohort on all
+192 months, a leak into the 2022–2025 evaluation period. It is preserved
+unchanged under `processed/legacy_precorrection/` (and at revision
+`47dd2a5f6be759562fa9c1e257bca50854e0fd6f`) for inspection only; the loader
+refuses it because its sidecar has no cohort-selection contract.
 
 ```bash
 python scripts/release.py data
-```
-
-This command downloads and checks the small sidecar first. At the pinned dataset
-revision it deliberately fails with the mismatch, before downloading the large
-incompatible NPZ or replacing any local data. It also checks the training-only
-cohort contract. The published earlier input must not be relabelled as corrected.
-
-For the exact archived run replay, obtain the corrected `census_lattice_9ch.npz`
-and matching JSON from the training source. Put them under
-`data/census_port/processed/`, preserving the pair, then run:
-
-```bash
 python scripts/release.py data-check
 python tests/verify_task_spec.py
 ```
+
+`data` downloads and checks the small sidecar first, then the lattice, verifies
+both against the pinned SHA-256 values, and installs the pair under
+`data/census_port/processed/`. It refuses to overwrite an existing pair.
+
+One manuscript-side inconsistency remains: the paper text combines 30,087
+series with 1,263 commodities. The archived runs and this dataset use 1,343.
 
 For a **new experiment**, the archived raw Census files can be downloaded and
 processed with the corrected builder:
@@ -137,6 +140,6 @@ are recorded in `results/SOURCES.json`.
 - See `docs/audit/` for the saved completion and statistical sensitivity audits.
   Those audits are snapshot evidence, not fresh training or full inference here.
 
-Public release should carry these qualifications and reconcile the input dataset
-and manuscript dimensions. No GitHub repository has been created or published by
+Public release should carry these qualifications and correct the manuscript's
+commodity count to 1,343. No GitHub repository has been created or published by
 this preparation step.
