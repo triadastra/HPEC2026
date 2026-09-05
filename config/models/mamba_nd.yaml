@@ -1,0 +1,40 @@
+# Mamba-ND grid model. Applies the Mamba-ND method (per-axis 1-D selective
+# scans, alternating axis and direction layer by layer) over the dense
+# (Time, State, Commodity, Flow) lattice, with Mamba-2 as the mixer.
+# Variant (grid_2d/3d/4d) selects which categorical axes are scanned.
+
+model:
+  name: mamba_nd
+
+  # Capacity-matched to the rest of the sweep: d_model=128, 4 layers.
+  d_model: 128
+  n_layers: 4
+  dropout: 0.1
+  d_state: 64       # Mamba-2 SSD state dimension
+  d_conv: 4         # short causal conv width
+  expand: 2         # block expansion (inner dim = expand * d_model = 256)
+  headdim: 32       # SSD head dim (256 / 32 = 8 heads)
+
+  # Which axis each layer scans, and in which direction. See
+  # src/models/scan_schedule.py.
+  #   cyclic  - one axis per layer, direction flipped after each full cycle.
+  #             Reaches every axis within n_layers=len(scan axes); falls back to
+  #             forward-only when there is no budget for both directions.
+  #   paired  - the upstream Mamba-ND schedule: each axis forward then backward
+  #             in adjacent layers. Needs 2 * (scan axes) layers before the
+  #             schedule repeats, so at n_layers=4 the 3d and 4d variants never
+  #             reach their later axes at all.
+  #   legacy  - the original schedule. Phase-locks axis order against direction
+  #             whenever the axis count is even, pinning every axis to a single
+  #             direction at ANY depth. 2d and 4d were affected; 3d escaped
+  #             because 3 and 2 are coprime. Kept only to reproduce prior runs.
+  scan_schedule: cyclic
+  bidirectional: true
+
+  # NOTE: at n_layers=4 only the 2d variant gets full bidirectional coverage
+  # (2 scan axes). 3d and 4d need n_layers=6 and 8 respectively; both emit a
+  # RuntimeWarning at construction saying so. Raising n_layers here breaks the
+  # capacity-matched comparison against the other 4-layer models, so it is left
+  # at 4 deliberately — change it only if the roster is rebalanced.
+
+  # Note: variant is set separately via variant config files

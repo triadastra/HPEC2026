@@ -1,0 +1,27 @@
+# Mamba-3 model configuration. Runs the REAL Mamba-3 (Dao AI Lab/Goombalab,
+# ICLR 2026 -- exponential-trapezoidal discretization, complex/RoPE-rotated
+# state, SISO) from the vendored state-spaces/mamba (external/mamba/) via
+# src/models/mamba3.py -- not a stub, and no longer a placeholder.
+#
+# NOTE ON KEY NAMES: Mamba3Model._build_model reads d_model / n_layers, NOT
+# hidden_size / num_layers. The previous placeholder set the latter pair, so
+# every key in this file was silently ignored and the model ran on code
+# defaults -- including headdim=64, which gave Mamba-3 half the SSD heads of
+# Mamba-2 in a roster that claims to be capacity-matched. (F3)
+
+model:
+  name: mamba3
+
+  # Capacity-matched to the sweep: d_model=128, 4 layers, dropout 0.1.
+  d_model: 128
+  n_layers: 4
+  dropout: 0.1
+  d_state: 64       # SSM state dimension (Mamba-3 upstream default is 128)
+  expand: 2         # inner dim = expand * d_model = 256
+  # 256 / 32 = 8 SSD heads, matching config/models/mamba.yaml (Mamba-2).
+  # Mamba-3's upstream default is headdim=64 (4 heads here); we pin 32 so the
+  # Mamba-2 vs Mamba-3 comparison differs only in the SSM formulation, not in
+  # head count. Set to 64 to run at the upstream default instead.
+  headdim: 32
+
+  # Note: variant is set separately via variant config files.

@@ -1,0 +1,55 @@
+{
+  "source_runs": 36,
+  "source_shape": [
+    30087,
+    24
+  ],
+  "final_shape": [
+    30087,
+    24
+  ],
+  "config_matches": true,
+  "matched_arrays": 72,
+  "array_mismatches": [],
+  "metadata_mismatches": [],
+  "invalid_final_arrays": [],
+  "final_loss_arrays_checked": 224,
+  "previous_provenance_gaps": {
+    "lstm_asa_3d_embeddings_s619": {
+      "source_metadata_matches_final": true,
+      "in_source_dump": true,
+      "metadata": {
+        "checkpoint_sha256": "6d0ae84f9868b3aae28460364fa4202f6f381c4c9cede7caf82a95058da414ec",
+        "fingerprint": "91fbd639644f0fec8cb58e9db175ce20335174233a3664c6af3ba010f0dbd51a",
+        "input_fingerprint": "15d8b17ecf6d6f3bff299b9d0efcee7c1132b004c2d25d2540d8865514c77b5c"
+      }
+    },
+    "lstm_asa_4d_embeddings_s619": {
+      "source_metadata_matches_final": true,
+      "in_source_dump": true,
+      "metadata": {
+        "checkpoint_sha256": "772d10f72e2ae2324804fee2279a2a2fb67c71f3414dc510ec37e7f86e5dd0e1",
+        "fingerprint": "e6ac2e185197681bf18ed6d1b76cd44ea2806f76364fbe155b0fa1bf82341bba",
+        "input_fingerprint": "ef71ae79e14a529fc6db62d872200e1218e60f02296fa24f75065a70fee806df"
+      }
+    },
+    "lstm_asa_4d_embeddings_s732": {
+      "source_metadata_matches_final": true,
+      "in_source_dump": true,
+      "metadata": {
+        "checkpoint_sha256": "e6528b5aaa24f7ef179faac6aa56ac0b922df6e7666f3216822b71d5a2ccf71c",
+        "fingerprint": "9ef0b8004639b96e7d0793b33b36c64783a7eea88fd10c9af18b92589a3b5cc3",
+        "input_fingerprint": "e9673f4e41a867f886decdcf4bd016f648f4ca8b4b815b4dc65738b4a955ba9e"
+      }
+    },
+    "lstm_fa_4d_embeddings_s619": {
+      "source_metadata_matches_final": true,
+      "in_source_dump": true,
+      "metadata": {
+        "checkpoint_sha256": "b6a5bdd50dcb8b50d605a2c14ae0d17bf51980696f5590c8a2b03c7ade55217a",
+        "fingerprint": "28df8d19f07c85c7f2a0fb76b92379df2d5390f8855ba86cc01f1a48d4012539",
+        "input_fingerprint": "60d9eff0ac880693340c563d1302611313c97043490dcf4d2c8215bfc148a57f"
+      }
+    }
+  }
+}

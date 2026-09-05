@@ -1,0 +1,16 @@
+# Real S4 model configuration. Wraps the genuine S4Block (FFTConv + DPLR SSM
+# kernel) from the vendored state-spaces/s4 (external/s4/models/s4/s4.py) via
+# src/models/s4.py -- the SAME S4 implementation used by the per-combo Exp 2
+# runs, NOT a stub. The standalone falls back to cauchy_naive, so no
+# compiled-kernel build is required.
+
+model:
+  name: s4
+
+  # Capacity-comparable to the other sequence models: d_model=128, 4 layers.
+  d_model: 128
+  n_layers: 4
+  d_state: 64       # SSM state dimension N (DPLR kernel)
+  dropout: 0.1
+
+  # Note: variant (onehot / embeddings) is set separately via variant configs.

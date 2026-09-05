@@ -1,0 +1,4 @@
+_name_: s4_flat
+data_dir: /root/data
+input_len: 36
+horizon: 1

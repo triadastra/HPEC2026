@@ -1,0 +1,14 @@
+# Variant: axial CROSS-attention (4d) -- promoted axes: State+Commodity+Flow.
+# The one arm in the roster where Q and K come from DIFFERENT sources: each
+# promoted axis queries the pooled complement of that axis, not itself.
+# Everything else here (asa, fa_local, fa) is self-attention.
+# See src/models/aca.py for provenance -- this is our construction, adapted
+# from the axial-centric cross-plane pattern, not a released implementation.
+
+model:
+  variant: aca_4d
+
+  attention:
+    dropout: 0.0
+
+# Do not add a 'data:' block here (an empty one parses as None and wipes base).

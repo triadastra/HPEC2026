@@ -1,0 +1,13 @@
+_name_: tensor_sine
+num_series: 128
+seq_len: 512
+window: 64
+horizon: 1
+train_ratio: 0.7
+val_ratio: 0.15
+freq_min: 0.02
+freq_max: 0.08
+amp_min: 0.5
+amp_max: 1.5
+noise_level: 0.1
+seed: 1337

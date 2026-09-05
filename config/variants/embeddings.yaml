@@ -1,0 +1,16 @@
+# Variant 2: Learned Embeddings
+
+model:
+  variant: embeddings
+
+  # Embedding dimensions per paper (paper included/GRU/GRU_flat.py::Cfg).
+  # If you change these, document the divergence in docs/MODEL_DIFFS.md.
+  embedding_dims:
+    state: 8       # 8 states → 8-dim embeddings
+    commodity: 32  # Commodities → 32-dim embeddings
+    flow: 2        # Import/Export → 2-dim embeddings (paper uses 2)
+
+  # Total categorical embedding size: 8 + 32 + 2 = 42 dimensions
+
+# Note: do not add `data:` here. Variants must not override the base data
+# config — an empty `data:` block parses as `None` and wipes out base.yaml.

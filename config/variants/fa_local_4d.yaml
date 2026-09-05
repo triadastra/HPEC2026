@@ -1,0 +1,13 @@
+# Variant: LOCAL reimplementation of CaFA's factorized attention operator (4d).
+# Kronecker-factorized per-axis SELF-attention (LocalFactorizedAttention),
+# drop-in for AxialComboSA. Axes: State+Commodity+Flow.
+# Softmax kernels, locally written projections -- see src/models/fa_local.py.
+# The authors' own components live in the fa_4d variant instead.
+
+model:
+  variant: fa_local_4d
+
+  attention:
+    dropout: 0.0
+
+# Do not add a 'data:' block here (an empty one parses as None and wipes base).

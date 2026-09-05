@@ -1,0 +1,23 @@
+{
+  "cpu_environment": {
+    "python": "3.11",
+    "torch": "2.9.1"
+  },
+  "checks": {
+    "hpec-release-smoke.log": "<repository>/src/models/__init__.py:29: UserWarning: Mamba-2 unavailable (ModuleNotFoundError(\"No module named 'triton'\")); 'mamba2' model not registered.\n  _warnings.warn(f\"Mamba-2 unavailable ({_mamba_err!r}); 'mamba2' model not registered.\")\n<repository>/src/models/__init__.py:37: UserWarning: Mamba-3 unavailable (ModuleNotFoundError(\"No module named 'triton'\")); 'mamba3' model not registered.\n  _warnings.warn(f\"Mamba-3 unavailable ({_mamba3_err!r}); 'mamba3' model not registered.\")\nCUDA extension for structured kernels (Cauchy and Vandermonde multiplication) not found. Install by going to extensions/kernels/ and running `python setup.py install`, for improved speed and memory efficiency. Note that the kernel changed for state-spaces 4.0 and must be recompiled.\nFalling back on slow Cauchy and Vandermonde kernel. Install at least one of pykeops or the CUDA extension for better speed and memory efficiency.\n<repository>/src/models/__init__.py:63: UserWarning: Mamba-ND unavailable (ModuleNotFoundError(\"No module named 'triton'\")); 'mamba_nd' model not registered.\n  _warnings.warn(f\"Mamba-ND unavailable ({_mnd_err!r}); 'mamba_nd' model not registered.\")\n{\n  \"repo\": \"Celsia/HPEC2026\",\n  \"revision\": \"51e064a2f8e1af1ff867794b5ce8aeeade4692cd\",\n  \"run\": \"gru_embeddings_1d_s947\",\n  \"verified\": true,\n  \"loaded_tensors\": 23,\n  \"parameters_and_buffers\": 531856,\n  \"inference_performed\": false,\n  \"synthetic_forward_performed\": true,\n  \"output_shape\": [\n    2,\n    2\n  ],\n  \"accuracy_evaluated\": false\n}\n",
+    "hpec-release-data.log": "Release pipeline stopped: dataset has 28292 series; archived main runs have 30087; use rebuild-data for a new cohort or obtain the exact corrected training inputs. See REPRODUCING.md.\n",
+    "hpec-release-plan.log": "477 planned runs -> <repository>/outputs/planned_matrix.json. Actual scheduling derives the cohort from the input lattice.\n"
+  },
+  "full_training_run": false,
+  "full_real_data_inference": false,
+  "dataset_status": "published processed dataset is incompatible with archived main checkpoints",
+  "cpu_tests": {
+    "passed": 604,
+    "skipped": 1,
+    "warnings": 32,
+    "seconds": 193.47
+  },
+  "archived_result_hashes_verified": 8,
+  "dependency_check": "151 installed packages compatible",
+  "original_research_checkout": "unchanged"
+}

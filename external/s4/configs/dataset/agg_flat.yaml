@@ -1,0 +1,13 @@
+_name_: agg_flat
+file_name: custom_data_org_sum.csv
+window_size: 12
+train_end: '2023-12-31'
+val_start: '2024-01-01'
+val_end: '2024-12-31'
+test_start: '2025-01-01'
+test_end: '2025-05-01'
+scale: true
+targets:
+  - 'Total Vessel Value ($US)'
+  - 'Total Vessel SWT (kg)'
+data_dir: /root/s4

@@ -1,0 +1,63 @@
+# @package _global_
+defaults:
+  - /trainer: default
+  - /loader: default
+  - /task: regression
+  - /optimizer: adamw
+  - /scheduler: plateau
+  - /model: s4
+  - /dataset: s4nd_3d
+  - override /model/layer: s4nd
+
+dataset:
+  _name_: s4nd_3d
+  data_dir: /root
+  input_len: 36
+  encoder_extra_dim: 2
+
+encoder:
+  - _name_: flowid
+    d_flow: 2
+  - linear
+decoder:
+  _name_: sequence
+  mode: last
+
+model:
+  n_layers: 4
+  d_model: 128
+  dropout: 0.1  # standardized to 0.1 across the sweep (uniform regularization; was 0.2)
+  prenorm: true
+  transposed: false
+  layer:
+    _name_: s4nd
+    d_state: 128
+    bidirectional: true
+    dim: 3
+    contract_version: 1
+
+loader:
+  batch_size: 8
+  num_workers: 0
+  drop_last: false
+loader_train:
+  batch_size: 8
+
+optimizer:
+  lr: 1e-3
+  weight_decay: 1e-4
+
+train:
+  monitor: val/loss
+  mode: min
+  interval: epoch
+  max_steps: null
+  test: true
+  seed: 1337
+
+trainer:
+  max_epochs: 200
+  accelerator: auto
+  devices: 1
+  precision: 32  # fp32 across the sweep (was 16) — removes the fp16-vs-fp32 confound vs the github models
+  val_check_interval: 0.5

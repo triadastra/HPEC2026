@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "rule": "min val_loss over epochs [0, window); ties -> smaller lr",
+  "window_epochs_requested": 20,
+  "stability_fraction": 0.6,
+  "grid": [
+    "1e-4",
+    "3e-4",
+    "1e-3",
+    "3e-3",
+    "1e-2"
+  ],
+  "seeds": [
+    947
+  ],
+  "official": true,
+  "selected": {
+    "mech": {
+      "gru": "1e-2",
+      "lstm": "1e-3",
+      "mamba2": "1e-4",
+      "mamba3": "1e-3",
+      "transformer": "3e-4"
+    }
+  },
+  "diverged": {},
+  "dim_transfer": {
+    "models": {},
+    "notes": []
+  },
+  "transfer_checks": {},
+  "diagnostics": {
+    "mech/gru": {
+      "selected": "1e-2",
+      "winner_at_epoch_fraction": "1e-2",
+      "ranking_stable": true,
+      "at_grid_endpoint": true,
+      "window_epochs": 13,
+      "stability_epoch": 8,
+      "best_val": {
+        "1e-4": 0.797087736427784,
+        "3e-4": 0.804390661418438,
+        "1e-3": 0.8131782288352648,
+        "3e-3": 0.8397517080108324,
+        "1e-2": 0.7855848719676336
+      }
+    },
+    "mech/lstm": {
+      "selected": "1e-3",
+      "winner_at_epoch_fraction": "1e-3",
+      "ranking_stable": true,
+      "at_grid_endpoint": false,
+      "window_epochs": 20,
+      "stability_epoch": 12,
+      "best_val": {
+        "1e-4": 0.8819810276230177,
+        "3e-4": 0.8805819104115168,
+        "1e-3": 0.8787849197785059,
+        "3e-3": 0.9298504367470741,
+        "1e-2": 0.9969574709733328
+      }
+    },
+    "mech/mamba2": {
+      "selected": "1e-4",
+      "winner_at_epoch_fraction": "1e-4",
+      "ranking_stable": true,
+      "at_grid_endpoint": true,
+      "window_epochs": 20,
+      "stability_epoch": 12,
+      "best_val": {
+        "1e-4": 0.6107938488324484,
+        "3e-4": 0.6353497579693794,
+        "1e-3": 0.6996080999573072,
+        "3e-3": 0.8038213004668554,
+        "1e-2": 0.8062510738770167
+      }
+    },
+    "mech/mamba3": {
+      "selected": "1e-3",
+      "winner_at_epoch_fraction": "1e-3",
+      "ranking_stable": true,
+      "at_grid_endpoint": false,
+      "window_epochs": 20,
+      "stability_epoch": 12,
+      "best_val": {
+        "1e-4": 1.0239229823152225,
+        "3e-4": 0.7486037214597067,
+        "1e-3": 0.6337669144074122,
+        "3e-3": 0.8109277884165446,
+        "1e-2": 1.9402105485399563
+      }
+    },
+    "mech/transformer": {
+      "selected": "3e-4",
+      "winner_at_epoch_fraction": "3e-4",
+      "ranking_stable": true,
+      "at_grid_endpoint": false,
+      "window_epochs": 18,
+      "stability_epoch": 11,
+      "best_val": {
+        "1e-4": 0.8091398427883784,
+        "3e-4": 0.7945078437527021,
+        "1e-3": 0.8604552472631136,
+        "3e-3": 0.997253067791462,
+        "1e-2": 1.0303119321664174
+      }
+    }
+  },
+  "sources": {
+    "exp0_mech_gru_lr1e2_s947": "43d483811f461fef45eeec6cf56c1a4ad221105756f018f03368bb5a90f5ec50",
+    "exp0_mech_gru_lr1e3_s947": "b9b4427e6777e51f05921329fbe98fc669471a1127fa303316cedfca13000499",
+    "exp0_mech_gru_lr1e4_s947": "81a55f20fc486f326e756fc08962e2920310693314acc7b6cfd762c1b61c4e62",
+    "exp0_mech_gru_lr3e3_s947": "0f977edabfd3c74de25119550f54c801dcaf5ff0e62fd76020043b60b3452e10",
+    "exp0_mech_gru_lr3e4_s947": "39df9469533a967ae79126cc6bad773ae600e332a5c717bc5f2312f508791ef6",
+    "exp0_mech_lstm_lr1e2_s947": "1e45f307745c44913a215c043bc888392572839204ac46db5f2b31fd5af56304",
+    "exp0_mech_lstm_lr1e3_s947": "d875d13c251c46a1fcf14345c788c97fddbee4c83605023c54b4d719bb347f6c",
+    "exp0_mech_lstm_lr1e4_s947": "222858829477323386e892da9e26f45814800385bdda576232527177e27dffcf",
+    "exp0_mech_lstm_lr3e3_s947": "8e50a7060e492984b6a218846834afd2c0ce40741438766328368fac6e1b47b0",
+    "exp0_mech_lstm_lr3e4_s947": "e1a2a77970aab138a95ea45c809efc5d0ee97c20332942f75881aec6171a7822",
+    "exp0_mech_mamba2_lr1e2_s947": "258700b65ff48f26a9442e2a2da310d0147fec1dec2be7c2f6ada4f861bbf03c",
+    "exp0_mech_mamba2_lr1e3_s947": "039c531524fa53deb0ada361b6f41653ad4599d0da045599e7f11c0cd9d6b0f4",
+    "exp0_mech_mamba2_lr1e4_s947": "8f4fae44c7604aa68dd2b17a074d863ef9661abb00e16908555ca8df351367ac",
+    "exp0_mech_mamba2_lr3e3_s947": "ce79b67255139b46b545854a0840fedce2f2fa55b802fc987c6bcb12f2844aa0",
+    "exp0_mech_mamba2_lr3e4_s947": "1fd92c90f6b7bb6e14c070eb1d2a86b61f6b9de40c8e3d77ff1e96c3a6d13433",
+    "exp0_mech_mamba3_lr1e2_s947": "14951da5a5487e29f629bec4de111205eb3bb541e6cd7e5c54f6a6eaf215c6d8",
+    "exp0_mech_mamba3_lr1e3_s947": "4f6f49d4955d59fa8643f6e3adf667b13936999e697980eac634e49daceb79b0",
+    "exp0_mech_mamba3_lr1e4_s947": "8523d6a92133786f9bf48f9114f91545a1d75f3721e726b2e2f20ccddb981d53",
+    "exp0_mech_mamba3_lr3e3_s947": "2447d105a67374cc5874a0a389d0efb942b245190b210179a3418e78b7ba2b00",
+    "exp0_mech_mamba3_lr3e4_s947": "d7f3e7a7893d67a77855e91c6c4a9870f87779f1139ee004b158957d683483b2",
+    "exp0_mech_transformer_lr1e2_s947": "39c8f9c15cd30701d3bcfabdb95412729df341e4eee3fa5944097f116c1b9a91",
+    "exp0_mech_transformer_lr1e3_s947": "57bf2347ae6b42a8644f680ce3f2943c42a59883979bb9e60cb9a9c09237a2f0",
+    "exp0_mech_transformer_lr1e4_s947": "850dc29e70b6dfa683a8838ab47c0f34f958eff930257985d5689cc47092f5ca",
+    "exp0_mech_transformer_lr3e3_s947": "2f7728700d07f846d11f7a2c1a3727424129a554f7bda314c111e87a42a79705",
+    "exp0_mech_transformer_lr3e4_s947": "3f18606f056b7a83dce2b8f8336e0724cfb656d0fad5e6e8919e5a811e0a0135"
+  }
+}

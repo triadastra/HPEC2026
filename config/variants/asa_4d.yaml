@@ -1,0 +1,13 @@
+# Variant: axial SELF-attention by dimension (4d)
+# Attends separately along each promoted lattice axis: State+Commodity+Flow.
+# Q/K/V are all projections of the same tensor, so this is self-attention --
+# the former name cross_attention_4d meant "attention ACROSS groups" and
+# collided with the standard term. dims is derived from the variant name.
+
+model:
+  variant: asa_4d
+
+  attention:
+    dropout: 0.0
+
+# Do not add a 'data:' block here (an empty one parses as None and wipes base).

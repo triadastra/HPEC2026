@@ -1,0 +1,9 @@
+# Variant: grid tag for the grid-native SSMs (3d) -- s4nd, mamba_nd.
+# These models contain NO attention: S4ND mixes with separable DPLR kernels and
+# Mamba-ND with an ordered scan. The tag only selects how many lattice axes are
+# promoted: State+Commodity. Formerly (mis)named cross_attention_3d.
+
+model:
+  variant: grid_3d
+
+# Do not add a 'data:' block here (an empty one parses as None and wipes base).

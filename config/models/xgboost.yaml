@@ -1,0 +1,27 @@
+# XGBoost model configuration
+
+model:
+  name: xgboost
+
+  # XGBoost-specific parameters
+  # Match paper included/xgboost/flat.py and onehot.py.
+  n_estimators: 2000
+  max_depth: 8
+  learning_rate: 0.05
+  subsample: 0.9
+  colsample_bytree: 0.8
+
+  # Regularization
+  reg_alpha: 0.0  # L1
+  reg_lambda: 1.0  # L2
+
+  # Tree parameters
+  min_child_weight: 1
+  gamma: 0.0
+
+  # Hardware
+  tree_method: "hist"  # "hist", "exact", "approx", "gpu_hist"
+  n_jobs: -1
+
+  # Note: variant is set separately via variant config files
+  # For XGBoost, variants control categorical encoding before feeding to model

@@ -1,0 +1,36 @@
+# Census port HS6 lattice — experiment override (this cycle's PRIMARY dataset).
+#
+# Compose LAST:  base < model < variant < census
+# Because it is merged last, its `data` and `model.embedding_dims` override any
+# variant defaults (e.g. the `embeddings` variant's track-0 8/32/2), so track-0
+# configs stay untouched. Consumed by the census train entry, which builds
+# `src/data/census_loader.py::CensusLattice` (reads census_lattice.npz) instead
+# of TradeDataPipeline.
+
+data:
+  loader: census                                       # -> CensusLattice
+  npz: data/census_port/processed/census_lattice_9ch.npz  # 9-channel mode build
+  # Official runs reject artifacts that cannot prove train-only cohort
+  # selection, normalization, and chronological split boundaries.
+  allow_legacy_artifact: false
+  input_len: 36
+  lag_count: 12
+  lag_mode: agg    # "agg" = lag the 2 aggregates only (F=35); "all" = lag all 9 (F=119)
+  # Splits by TARGET-month index over the 192-month panel (2010-01 .. 2025-12):
+  train_end: 144   # targets in [burn_in, 144) = train  (2010-01 .. 2021-12)
+  val_end: 168     # [144, 168) val (2022-23) ; [168, 192) test (2024-25)
+
+model:
+  # Frozen benchmark embedding widths. Lattice cardinalities themselves are
+  # loaded from the generated sidecar rather than hardcoded here.
+  embedding_dims:
+    commodity: 88
+    state: 7
+    flow: 2
+
+training:
+  # The train-only-selected series count comes from the lattice sidecar. The
+  # axial/combo path carries every retained series in a month, so it needs a
+  # small physical batch on the H20s.
+  batch_size: 64          # flat (per-series) path
+  combo_batch_size: 4     # axial / multidim path (override in the combo run)

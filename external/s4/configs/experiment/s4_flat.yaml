@@ -1,0 +1,70 @@
+# @package _global_
+
+defaults:
+  - /trainer: default
+  - /loader: default
+  - /task: regression
+  - /optimizer: adamw
+  - /scheduler: plateau
+  - /model: s4
+  - /dataset: s4_flat
+
+encoder:
+  - _name_: tradeid
+    d_state: 8
+    d_comm: 32
+    d_flow: 2
+  - linear
+
+# Standard 1-step decoder (same as s4_onehot). The original config had no
+# decoder key at all, which crashes train.py (Missing key decoder), and
+# task=forecasting expects multi-horizon datasets; regression + last-step
+# pooling is the repo-wide 1-step convention.
+decoder:
+  _name_: sequence
+  mode: last
+
+model:
+  n_layers: 4
+  d_model: 256
+  dropout: 0.1
+  prenorm: true
+  transposed: false
+  layer:
+    _name_: s4
+    d_state: 256
+    bidirectional: false
+
+loader:
+  batch_size: 256
+  num_workers: 8
+  drop_last: false
+
+loader_train:
+  batch_size: 256
+
+optimizer:
+  lr: 1e-3
+  weight_decay: 1e-4
+
+train:
+  monitor: val/loss
+  mode: min
+  interval: epoch
+  max_steps: null
+  test: true
+  seed: 1337
+
+trainer:
+  max_epochs: 10
+  accelerator: auto
+  devices: 1
+  precision: 16
+  val_check_interval: 1.0
+
+dataset:
+  _name_: s4_flat
+  data_dir: /root/data
+  input_len: 36
+  horizon: 1
+

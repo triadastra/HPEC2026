@@ -1,0 +1,10 @@
+# Variant 1: One-Hot Encoding
+
+model:
+  variant: onehot
+
+  # One-hot encoding uses sparse vectors for categorical features
+  # No embedding dimensions needed
+
+# Note: do not add `data:` here. Variants must not override the base data
+# config — an empty `data:` block parses as `None` and wipes out base.yaml.

@@ -1,0 +1,291 @@
+{
+  "shape": [
+    30087,
+    24
+  ],
+  "dump_runs": 111,
+  "bound_to_saved_completion": 107,
+  "unbound_runs": [
+    "lstm_asa_3d_embeddings_s619",
+    "lstm_asa_4d_embeddings_s619",
+    "lstm_asa_4d_embeddings_s732",
+    "lstm_fa_4d_embeddings_s619"
+  ],
+  "pairs": [
+    {
+      "pair": "S4ND-4D vs S4 flat",
+      "old_z": 103.29963739082092,
+      "new_z": 103.29963739124474,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "S4 flat vs Transformer",
+      "old_z": -114.04643521839189,
+      "new_z": -114.04643521888491,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "S4 flat vs GRU FA-2D",
+      "old_z": -149.5499839924074,
+      "new_z": -149.54998399248151,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "FA authors vs ASA 2-D",
+      "old_z": 145.50831451622437,
+      "new_z": 145.5083145163045,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "identity vs blind (Tr 2D)",
+      "old_z": 1.77741613725669,
+      "new_z": 1.7774161372639823,
+      "old_p": 0.07549979763379872,
+      "new_p": 0.07549979763259977,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa_local vs FA authors (GRU 2D)",
+      "old_z": -147.8953336964995,
+      "new_z": -147.89533369659318,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa_sm vs FA authors (GRU 2D)",
+      "old_z": -145.38006037037343,
+      "new_z": -145.38006037046551,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa_local vs fa_sm (GRU 2D)",
+      "old_z": -121.66887075940127,
+      "new_z": -121.66887076006462,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa_local vs ASA (GRU 2D)",
+      "old_z": -105.82238698443926,
+      "new_z": -105.82238698492878,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa_sm vs ASA (GRU 2D)",
+      "old_z": 1.4112841321602867,
+      "new_z": 1.4112841321682144,
+      "old_p": 0.15816085137329436,
+      "new_p": 0.1581608513709578,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa_local vs ASA (Tr 2D)",
+      "old_z": -129.12037367564838,
+      "new_z": -129.1203736761568,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa_sm vs ASA (Tr 2D)",
+      "old_z": -50.189576909084536,
+      "new_z": -50.1895769095102,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa_local vs fa_sm (Tr 2D)",
+      "old_z": -130.66848408989867,
+      "new_z": -130.66848409071184,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa_local vs ASA (gru 3D)",
+      "old_z": -114.75654223607265,
+      "new_z": -114.75654223666987,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa_local vs ASA (gru 4D)",
+      "old_z": -82.3483607448464,
+      "new_z": -82.34836074535212,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa_local vs ASA (lstm 3D)",
+      "old_z": 128.9572505261984,
+      "new_z": 128.95725052640435,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa_local vs ASA (lstm 4D)",
+      "old_z": 112.47191011927555,
+      "new_z": 112.47191011943659,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa_local vs ASA (transformer 3D)",
+      "old_z": -115.12318832375198,
+      "new_z": -115.12318832414506,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa_local vs ASA (transformer 4D)",
+      "old_z": -149.1248101502647,
+      "new_z": -149.12481015044125,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa vs ASA (gru 3D)",
+      "old_z": 143.6193590524882,
+      "new_z": 143.61935905259494,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa vs ASA (gru 4D)",
+      "old_z": 145.17726059931528,
+      "new_z": 145.1772605994352,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa vs ASA (lstm 3D)",
+      "old_z": -20.580422698403318,
+      "new_z": -20.58042269852459,
+      "old_p": 4.110812500082935e-94,
+      "new_p": 4.110812489798775e-94,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa vs ASA (lstm 4D)",
+      "old_z": -114.1304480610042,
+      "new_z": -114.13044806128075,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa vs ASA (transformer 3D)",
+      "old_z": -120.71791555380031,
+      "new_z": -120.71791555424905,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "fa vs ASA (transformer 4D)",
+      "old_z": -126.13479244613706,
+      "new_z": -126.13479244638711,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "S4 flat vs persistence",
+      "old_z": -108.93123453079005,
+      "new_z": -108.93123453094303,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    },
+    {
+      "pair": "S4ND-4D vs persistence",
+      "old_z": -74.18611819665163,
+      "new_z": -74.18611819678237,
+      "old_p": 0.0,
+      "new_p": 0.0,
+      "decision_changed": false
+    }
+  ],
+  "reported_metrics": {
+    "rows": 111,
+    "checked": 111,
+    "missing": [],
+    "max_MSE_difference": 0.0,
+    "max_MAE_difference": 0.0,
+    "differences_over_1e-6": []
+  },
+  "missing_completion_alternative_binding": [
+    {
+      "run": "lstm_asa_3d_embeddings_s619",
+      "checkpoint": "lstm_asa_3d_embeddings_s619/best.pth",
+      "checkpoint_sha256_matches": true,
+      "manifest_fingerprint_matches": false,
+      "input_fingerprint_matches": false
+    },
+    {
+      "run": "lstm_asa_3d_embeddings_s619",
+      "checkpoint": "exp7_exp8_operator_study/sig_backfill/lstm_asa_3d_embeddings_s619/best.pth",
+      "checkpoint_sha256_matches": true,
+      "manifest_fingerprint_matches": true,
+      "input_fingerprint_matches": true
+    },
+    {
+      "run": "lstm_asa_4d_embeddings_s619",
+      "checkpoint": "lstm_asa_4d_embeddings_s619/best.pth",
+      "checkpoint_sha256_matches": true,
+      "manifest_fingerprint_matches": false,
+      "input_fingerprint_matches": false
+    },
+    {
+      "run": "lstm_asa_4d_embeddings_s732",
+      "checkpoint": "lstm_asa_4d_embeddings_s732/best.pth",
+      "checkpoint_sha256_matches": true,
+      "manifest_fingerprint_matches": false,
+      "input_fingerprint_matches": false
+    },
+    {
+      "run": "lstm_asa_4d_embeddings_s732",
+      "checkpoint": "exp7_exp8_operator_study/sig_backfill/lstm_asa_4d_embeddings_s732/best.pth",
+      "checkpoint_sha256_matches": true,
+      "manifest_fingerprint_matches": true,
+      "input_fingerprint_matches": true
+    },
+    {
+      "run": "lstm_fa_4d_embeddings_s619",
+      "checkpoint": "lstm_fa_4d_embeddings_s619/best.pth",
+      "checkpoint_sha256_matches": true,
+      "manifest_fingerprint_matches": false,
+      "input_fingerprint_matches": false
+    },
+    {
+      "run": "lstm_fa_4d_embeddings_s619",
+      "checkpoint": "exp7_exp8_operator_study/sig_backfill/lstm_fa_4d_embeddings_s619/best.pth",
+      "checkpoint_sha256_matches": true,
+      "manifest_fingerprint_matches": true,
+      "input_fingerprint_matches": true
+    }
+  ]
+}

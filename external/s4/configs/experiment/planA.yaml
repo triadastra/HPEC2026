@@ -1,0 +1,59 @@
+# @package _global_
+defaults:
+  - /trainer: default
+  - /loader: default
+  - /task: regression
+  - /optimizer: adamw
+  - /scheduler: plateau
+  - /model: s4
+  - /dataset: planA
+
+encoder:
+  - _name_: tradeid
+    d_state: 8
+    d_comm: 32
+    d_flow: 2
+  - _name_: planA_linear
+    in_features: 70
+    out_features: 256
+
+decoder:
+  _name_: sequence
+  mode: last
+
+model:
+  n_layers: 4
+  d_model: 256
+  dropout: 0.1
+  prenorm: true
+  transposed: false
+  layer:
+    _name_: s4
+    d_state: 256
+    bidirectional: false
+
+loader:
+  batch_size: 2048
+  num_workers: 8
+  drop_last: false
+
+train:
+  monitor: val/loss
+  mode: min
+  interval: epoch
+  test: true
+  seed: 1337
+
+trainer:
+  max_epochs: 200
+  accelerator: auto
+  devices: 1
+  precision: 16
+  val_check_interval: 1.0
+
+dataset:
+  target: both
+
+hydra:
+  run:
+    dir: /root/s4/outputs/s4flat

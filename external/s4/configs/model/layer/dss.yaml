@@ -1,0 +1,10 @@
+defaults:
+  - s4
+
+# Real Diagonal State Space (Gupta, Gupta & Berant, NeurIPS 2022): the complex
+# diagonal SSM kernel with the DSS discretization, as implemented in state-spaces/s4
+# (ssm.py disc=='dss'). This is the genuine DSS — NOT the gated diagonal linear RNN
+# in src/models/dss.py. Diagonal mode + diag-lin (skew-HiPPO-style) init + dss disc.
+mode: diag
+init: diag-lin
+disc: dss
