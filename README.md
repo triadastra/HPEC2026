@@ -235,6 +235,19 @@ This work follows the WCTR 2026
 benchmark. Its earlier dataset and results use a different protocol and are not
 Census benchmark evidence.
 
+## Declaration on the use of generative AI
+
+As declared in the paper, Claude Code was used for code scaffolding, literature
+research, table typesetting, result graphing, and mathematical notation. ChatGPT
+Codex was used for proofreading and reference checking. All experiments and
+reported results were run and checked by the authors.
+
+This public-facing repository was cleaned using Anthropic Fable 5.1 and OpenAI
+Astra 6 to make the code easier for future researchers to run. No experiments or
+configurations were altered during this cleanup.
+
+This README was written using GPT 6 Astra.
+
 ## License
 
 The benchmark code is released under the [MIT License](LICENSE). Upstream code
