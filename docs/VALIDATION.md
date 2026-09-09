@@ -8,10 +8,12 @@
 - Eight staged result tables match the SHA-256 checksums recorded in
   `results/SOURCES.json`, including their original line endings.
 - The planning command generated 477 main runs without starting training.
-- The pinned dataset sidecar was downloaded and rejected as intended: 28,292
-  series, rather than the archived main matrix's 30,087.
+- Corrected input pair rechecked on 2026-09-09: both SHA-256 hashes match
+  `SOURCE.json`; the 30,087-series lattice passes loader validation and all
+  15 task-spec checks. The earlier incompatible dataset has been superseded.
 - Dependency check: all 151 installed packages compatible.
 - Original research checkout was left unchanged; no remote publication occurred.
 
-The GPU/Mamba runtime, full training, raw-data rebuild and real-data evaluation
-were not run. `docs/verification.json` contains compact machine-readable evidence.
+The GPU/Mamba runtime, full training, raw-data rebuild and full real-data
+inference sweep were not run. The single archived GRU real-data reproduction
+is recorded separately in `REPRODUCING.md`. `docs/verification.json` contains compact machine-readable evidence.

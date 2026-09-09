@@ -87,7 +87,7 @@ python scripts/release.py data-check
 This fetches all 384 monthly raw archives (several GB), uses the matching archived
 Schedule D reference, and refuses to overwrite an existing input pair. It has not
 been run end-to-end as part of preparing this release. A rebuilt lattice must
-not be claimed byte-identical to the missing training input without evidence.
+not be claimed byte-identical to the archived training input without evidence.
 
 ## Train and evaluate a new experiment
 
