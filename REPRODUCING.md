@@ -140,6 +140,7 @@ are recorded in `results/SOURCES.json`.
 - See `docs/audit/` for the saved completion and statistical sensitivity audits.
   Those audits are snapshot evidence, not fresh training or full inference here.
 
-Public release should carry these qualifications and correct the manuscript's
-commodity count to 1,343. No GitHub repository has been created or published by
-this preparation step.
+The public release carries these qualifications. The manuscript still needs its
+commodity count corrected to 1,343, along with the derived grid size, density,
+and embedding-width explanation. The code repository is
+[triadastra/HPEC2026](https://github.com/triadastra/HPEC2026).
