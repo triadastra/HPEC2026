@@ -1,0 +1,4 @@
+_name_: s4nd_3d
+data_dir: /root
+input_len: 36
+encoder_extra_dim: 2

@@ -1,0 +1,67 @@
+# @package _global_
+defaults:
+  - /trainer: default
+  - /loader: default
+  - /task: regression
+  - /optimizer: adamw
+  - /scheduler: plateau
+  - /model: s4
+  - /dataset: s4nd_agg5d
+  - override /model/layer: s4nd
+
+dataset:
+  encoder_extra_dim: 2
+
+encoder:
+  - _name_: flowid
+    d_flow: 2
+  - linear
+decoder:
+  _name_: sequence
+  mode: last
+
+model:
+  n_layers: 4
+  d_model: 128
+  dropout: 0.2
+  prenorm: true
+  transposed: false
+  layer:
+    _name_: s4nd
+    d_state: 128
+    bidirectional: true
+    dim: 3           # (State, Commodity, Time)
+    contract_version: 1
+
+loader:
+  batch_size: 8
+  num_workers: 10
+  drop_last: false
+
+loader_train:
+  batch_size: 8
+
+optimizer:
+  lr: 1e-3
+  weight_decay: 1e-4
+
+train:
+  monitor: val/loss
+  mode: min
+  interval: epoch
+  max_steps: null
+  test: true
+  seed: 1337
+
+trainer:
+  max_epochs: 200
+  accelerator: auto
+  devices: 1
+  precision: 16
+  val_check_interval: 0.5
+
+hydra:
+  run:
+    dir: ./5d_output/${now:%Y-%m-%d}/${now:%H-%M-%S-%f}
+
+

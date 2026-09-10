@@ -1,0 +1,122 @@
+# Shared model/training defaults for the HPEC Census benchmark.
+
+model:
+  name: null  # Overridden per model
+  variant: null  # "onehot", "embeddings", "cross_attention", "film_attention"
+
+  # Architecture parameters
+  hidden_size: 128
+  num_layers: 4
+  dropout: 0.1  # standardized to 0.1 across the sweep (uniform regularization)
+  bidirectional: false
+
+  # Embedding dimensions (for variants that use embeddings)
+  embedding_dims:
+    state: 8
+    commodity: 32
+    flow: 2
+
+data:
+  # Historical loader fallback only, for the pre-Census TradeDataPipeline
+  # path. The predecessor's WCTR data is NOT in this repository, so these
+  # paths do not resolve; every HPEC run composes config/census.yaml last and
+  # reads the prebuilt lattice .npz instead (data.loader == "census").
+  imports_dir: data/imports
+  exports_dir: data/exports
+
+  # Date range
+  start: "2009-01-01"
+  end: "2025-05-01"
+
+  # Sequence parameters
+  input_len: 36  # Number of months to look back
+  lag_count: 12  # Number of lag features
+
+  # Normalization
+  normalize: true
+  normalization_method: "minmax"  # "zscore", "minmax", "none"
+
+training:
+  # Training parameters
+  batch_size: 512
+  epochs: 200
+  lr: 0.001
+  weight_decay: 0.0001  # uniform mild decay across the sweep (matches S4; decoupled under AdamW)
+
+  # Optimizer
+  optimizer: "adamw"  # standardized to AdamW across the sweep (was adam; S4 family already AdamW)
+  betas: [0.9, 0.999]
+  eps: 1.0e-08
+
+  # Learning rate scheduler
+  scheduler: "reduce_on_plateau"  # "reduce_on_plateau", "cosine", "step", null
+  scheduler_patience: 5
+  scheduler_factor: 0.5
+
+  # Early stopping
+  patience: 10
+  min_delta: 0.0001
+
+  # Device
+  device: cuda  # "cuda", "cpu", "mps"
+
+  # Mixed precision
+  use_amp: false
+
+  # Gradient clipping is ON by default. Without it, Transformer with
+  # lr=1e-3 diverges to NaN within the first epoch on the trade dataset.
+  grad_clip: true
+  grad_clip_norm: 1.0
+
+splits:
+  # Data split dates
+  train_end: "2023-12-01"
+  val_start: "2024-01-01"
+  val_end: "2024-12-01"
+  test_start: "2025-01-01"
+  test_end: "2025-05-01"
+
+evaluation:
+  # DRIVING LOSS: normalized MSE (per-combo MinMax) is THE single objective that
+  # drives training + early-stopping (checkpointing.monitor=val_loss below, which
+  # IS this MSE) + the leaderboard sort. Every metric listed here is REPORTED but
+  # never used to select a model.
+  primary_metric: norm_mse_combined
+  driving_loss: mse                       # computed on per-combo MinMax-normalized targets
+
+  # Frozen current-benchmark seeds. All required seeds must be present before a
+  # model is eligible for a seed-averaged comparison.
+  seeds: [947, 732, 619]
+
+  # Metrics to compute (all reported; none used for model selection)
+  metrics:
+    - mae
+    - mse
+    - rmse
+    - smape
+
+  # Aggregation method
+  aggregate_by: ["state", "commodity", "flow"]
+
+  # Save predictions
+  save_predictions: true
+  prediction_format: "csv"  # "csv", "parquet", "both"
+
+logging:
+  # Logging configuration
+  log_dir: outputs/logs
+  experiment_name: null  # Auto-generated if null
+  log_level: "INFO"  # "DEBUG", "INFO", "WARNING", "ERROR"
+  log_to_console: true
+  log_to_file: true
+
+checkpointing:
+  # Checkpoint configuration
+  save_dir: outputs/runs
+  save_best_only: true
+  monitor: "val_loss"  # Metric to monitor for best model
+  mode: "min"  # "min" or "max"
+  # Inert while save_best_only is true: CheckpointManager writes last.pth only
+  # when save_best_only is false. Left true so flipping save_best_only restores
+  # both; a 477-run sweep does not want a second checkpoint per run.
+  save_last: true

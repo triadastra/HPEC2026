@@ -1,0 +1,47 @@
+{
+  "repository": "Celsia/HPEC2026",
+  "repo_type": "model",
+  "revision": "51e064a2f8e1af1ff867794b5ce8aeeade4692cd",
+  "files": [
+    {
+      "file": "combined_results.csv",
+      "hub_path": "exp7_exp8_operator_study/deliverables/combined_results.csv",
+      "sha256": "65accf908b28ec65e344028cedb539e4e5e09855eac75b02fa1894e7af0c99af"
+    },
+    {
+      "file": "per_run_metrics.csv",
+      "hub_path": "exp7_exp8_operator_study/deliverables/per_run_metrics.csv",
+      "sha256": "5045680ecfed87135068e7d0c890b505e73492137d8b7834b55ee6325bf3ca16"
+    },
+    {
+      "file": "model_cost_FINAL.csv",
+      "hub_path": "exp7_exp8_operator_study/deliverables/model_cost_FINAL.csv",
+      "sha256": "2187921136f9003c6970039869c84fc8a952e720a82595d38d44cb06e092b054"
+    },
+    {
+      "file": "significance_FINAL_v3.txt",
+      "hub_path": "exp7_exp8_operator_study/final/results/significance_FINAL_v3.txt",
+      "sha256": "4ae92191439c09fd653be5c4f44c250767789717a029028446c20652c36dcd09"
+    },
+    {
+      "file": "aggregate_and_identity_results.csv",
+      "hub_path": "results/boxB/results.csv",
+      "sha256": "29212212e6949cdda7bc2aff6b3cd34f81755ada35d1d7ec1300f5e3339d576d"
+    },
+    {
+      "file": "flat_and_nd_results.csv",
+      "hub_path": "results/boxA/results.csv",
+      "sha256": "3c4520a33e0f8d4535659f98916211b9c3c5bc4b8aa651cfb8e676a843c3b3f1"
+    },
+    {
+      "file": "rolling_annual.csv",
+      "hub_path": "results/boxB/rolling_annual.csv",
+      "sha256": "27c78873fe0d7dec47486e77b5a9be5ca517b052d3bf85568c0961cd4608e22f"
+    },
+    {
+      "file": "rolling_pooled.csv",
+      "hub_path": "results/boxB/rolling_pooled.csv",
+      "sha256": "6f53041763b4bdeeed6b523de4763fd994d53577bed4b69f790ab0f1d42bc820"
+    }
+  ]
+}

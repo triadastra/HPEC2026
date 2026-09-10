@@ -1,0 +1,18 @@
+# Mamba-2 model configuration. Runs the REAL Mamba-2 from the vendored
+# state-spaces/mamba (external/mamba/) via src/models/mamba.py — not a stub.
+
+model:
+  name: mamba
+
+  # Capacity-matched to the sweep: d_model=128, 4 layers, dropout 0.1.
+  # d_state/d_conv/expand/headdim are Mamba-native — Mamba's state mechanism is
+  # a different axis from S4's d_state, so it is deliberately NOT forced to 128.
+  d_model: 128
+  n_layers: 4
+  dropout: 0.1
+  d_state: 64       # Mamba-2 SSD state dimension
+  d_conv: 4         # short causal conv width
+  expand: 2         # block expansion (inner dim = expand * d_model = 256)
+  headdim: 32       # SSD head dim (256 / 32 = 8 heads)
+
+  # Note: variant is set separately via variant config files

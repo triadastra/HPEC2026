@@ -1,0 +1,69 @@
+# @package _global_
+# S4ND "State grid" — the paper's "2-D by State". State is the structured grid
+# axis; Commodity x Flow is folded into a group axis G and re-injected as
+# embeddings via the cfid encoder. Clean-pipeline port of the legacy s4nd-4dagg
+# experiment, standardized to the sweep (d_state=128, precision=32, batch=8).
+defaults:
+  - /trainer: default
+  - /loader: default
+  - /task: regression
+  - /optimizer: adamw
+  - /scheduler: plateau
+  - /model: s4
+  - /dataset: s4nd_2d
+  - override /model/layer: s4nd
+
+dataset:
+  _name_: s4nd_2d
+  data_dir: /root
+  input_len: 36
+
+encoder:
+  - _name_: cfid
+    learn_flow: true
+    d_flow: 2
+    flow_init: normal
+    flow_std: 0.02
+  - linear
+decoder:
+  _name_: sequence
+  mode: last
+
+model:
+  n_layers: 4
+  d_model: 128
+  dropout: 0.1  # standardized to 0.1 across the sweep (uniform regularization)
+  prenorm: true
+  transposed: false
+  layer:
+    _name_: s4nd
+    d_state: 128
+    bidirectional: true
+    dim: 3  # convolves over (State, Group, L) — same rank as s4nd_3d
+    contract_version: 1
+
+loader:
+  batch_size: 8
+  num_workers: 0
+  drop_last: false
+loader_train:
+  batch_size: 8
+
+optimizer:
+  lr: 1e-3
+  weight_decay: 1e-4
+
+train:
+  monitor: val/loss
+  mode: min
+  interval: epoch
+  max_steps: null
+  test: true
+  seed: 1337
+
+trainer:
+  max_epochs: 200
+  accelerator: auto
+  devices: 1
+  precision: 32  # fp32 across the sweep (removes the fp16-vs-fp32 confound)
+  val_check_interval: 0.5

@@ -1,0 +1,25 @@
+# LightGBM model configuration
+
+model:
+  name: lightgbm
+
+  # LightGBM peer baseline for XGBoost's paper-style tabular rows.
+  n_estimators: 2000
+  learning_rate: 0.05
+  num_leaves: 255
+  max_depth: -1
+  subsample: 0.9
+  colsample_bytree: 0.8
+
+  # Regularization
+  reg_alpha: 0.0
+  reg_lambda: 1.0
+
+  # Tree parameters
+  min_child_samples: 20
+
+  # Hardware
+  n_jobs: -1
+
+  # Note: variant is set separately via variant config files.
+  # embeddings = integer IDs for tree features; onehot = one-hot columns.

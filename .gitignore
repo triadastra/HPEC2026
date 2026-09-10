@@ -1,0 +1,109 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VSCode
+.vscode/
+
+# Outputs
+outputs/runs/
+outputs/predictions/
+outputs/eval_results/
+outputs/plots/
+*.pth
+*.pkl
+*.ckpt
+
+# Data (optional - uncomment if you don't want to track data)
+# data/exports/*.csv
+# data/imports/*.csv
+
+# Logs
+*.log
+logs/
+wandb/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model checkpoints
+checkpoints/
+sweeps/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Run artifacts
+outputs/
+
+# macOS Finder / iCloud copy-on-write duplicate files (e.g. "file 2.py", "AUTHORS 2")
+* [0-9].*
+* [0-9]
+# Excel / Office lock files
+~$*
+
+# FAF5 raw + processed payloads (too large for git; see milestones.md §3)
+data/faf5/raw/
+data/faf5/processed/
+data/stb_waybill/raw/
+data/stb_waybill/processed/
+data/usace_wcsc/raw/
+data/usace_wcsc/processed/
+data/census_ports/raw/
+data/census_ports/processed/
+# The built lattice actually lives under census_port (no trailing "s") -- that
+# is the path config/census.yaml and sweep.py's DEFAULT_NPZ use. Without this
+# the generated .npz/.json are untracked-but-not-ignored and easy to commit.
+data/census_port/raw/
+data/census_port/processed/
+data/transborder/raw/
+data/transborder/processed/
+data/comext/raw/
+data/comext/processed/
+data/comexstat/raw/
+data/comexstat/processed/
+
+# Claude review-board working files
+.claude/review/
+
+# Release-local data and credentials
+.env
+.env.*
+.cache/
+*.npz
+release-checks/

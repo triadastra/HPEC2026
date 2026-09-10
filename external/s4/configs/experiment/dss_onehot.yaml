@@ -1,0 +1,61 @@
+# @package _global_
+# REAL DSS (Gupta et al. 2022, disc=dss), one-hot encoding variant — same as
+# dss_embeddings but categorical identity is appended as one-hot (s4_onehot_u).
+defaults:
+  - /trainer: default
+  - /loader: default
+  - /task: regression
+  - /optimizer: adamw
+  - /scheduler: plateau
+  - /model: s4
+  - /dataset: s4_onehot_u
+  - override /model/layer: dss
+
+encoder:
+  - linear
+
+decoder:
+  _name_: sequence
+  mode: last
+
+model:
+  n_layers: 4
+  d_model: 128
+  dropout: 0.1
+  prenorm: true
+  transposed: false
+  layer:
+    d_state: 128
+    bidirectional: false
+
+loader:
+  batch_size: 64
+  num_workers: 0
+  drop_last: false
+loader_train:
+  batch_size: 64
+
+optimizer:
+  lr: 1e-3
+  weight_decay: 1e-4
+
+train:
+  monitor: val/loss
+  mode: min
+  interval: epoch
+  max_steps: null
+  test: true
+  seed: 1337
+
+trainer:
+  max_epochs: 200
+  accelerator: auto
+  devices: 1
+  precision: 32
+  val_check_interval: 1.0
+
+dataset:
+  _name_: s4_onehot_u
+  data_dir: /root
+  input_len: 36
+  lag_count: 12

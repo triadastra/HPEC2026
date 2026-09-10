@@ -1,0 +1,25 @@
+# Genuine S4ND grid model (separable per-axis DPLR kernels = outer-product N-D
+# LTI convolution) over the masked (Time, State, Commodity, Flow) lattice.
+# Wraps the SAME standalone S4 kernels as config/models/s4.yaml, so the flat-vs
+# -grid comparison differs in the operator's dimensionality, not its kernel.
+#
+# Previously there was no s4nd.yaml at all: `--model s4nd` fell through to
+# base.yaml and ran on whatever S4NDModel's code defaults happened to be. Those
+# defaults matched the intent, but nothing enforced it. (F9)
+#
+# NOTE: S4NDModel reads hidden_size / num_layers (not d_model / n_layers);
+# scripts/train.py supplies both spellings, so either works here.
+
+model:
+  name: s4nd
+
+  # Capacity-comparable to the rest of the sweep.
+  hidden_size: 128
+  num_layers: 4
+  d_state: 64       # SSM state dimension N per axis (DPLR kernel), as in s4.yaml
+  dropout: 0.1
+
+  # The Time-axis kernel length is data.input_len, threaded in by train.py.
+
+  # Note: grid tag (cross_attention_{2,3,4}d) is set via config/variants/*.yaml.
+  # No cafa_* variants: S4ND is natively factorized.

@@ -1,0 +1,72 @@
+# @package _global_
+# S4ND "State-flat" 2-D by State: State is the SOLE convolved categorical axis.
+# Commodity x Flow is folded into the batch and re-injected as per-sample features
+# via the cfstate encoder. Output (B,S,2); the s4nd layer convolves over
+# (State, time) only -> dim=2. This is the literal Tensor(B,S,L,F) of the paper
+# and the clean "+State" rung of the dimensionality ablation. Standardized to the
+# sweep (d_state=128, precision=32, batch=8); the sibling s4nd_2d instead keeps
+# Commodity x Flow as a grid axis (dim=3).
+defaults:
+  - /trainer: default
+  - /loader: default
+  - /task: regression
+  - /optimizer: adamw
+  - /scheduler: plateau
+  - /model: s4
+  - /dataset: s4nd_2d_state
+  - override /model/layer: s4nd
+
+dataset:
+  _name_: s4nd_2d_state
+  data_dir: /root
+  input_len: 36
+
+encoder:
+  - _name_: cfstate
+    learn_flow: true
+    d_flow: 2
+    flow_init: normal
+    flow_std: 0.02
+  - linear
+decoder:
+  _name_: sequence
+  mode: last
+
+model:
+  n_layers: 4
+  d_model: 128
+  dropout: 0.1  # standardized to 0.1 across the sweep (uniform regularization)
+  prenorm: true
+  transposed: false
+  layer:
+    _name_: s4nd
+    d_state: 128
+    bidirectional: true
+    dim: 2  # convolves over (State, time) only; commodity x flow is in the features
+    contract_version: 1
+
+loader:
+  batch_size: 8
+  num_workers: 0
+  drop_last: false
+loader_train:
+  batch_size: 8
+
+optimizer:
+  lr: 1e-3
+  weight_decay: 1e-4
+
+train:
+  monitor: val/loss
+  mode: min
+  interval: epoch
+  max_steps: null
+  test: true
+  seed: 1337
+
+trainer:
+  max_epochs: 200
+  accelerator: auto
+  devices: 1
+  precision: 32  # fp32 across the sweep (removes the fp16-vs-fp32 confound)
+  val_check_interval: 0.5

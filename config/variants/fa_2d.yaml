@@ -1,0 +1,52 @@
+# The authors' released Factorized Attention (FA) operator, geometry-free, over the State axis.
+# HEAD GEOMETRY -- scaled to this benchmark's width, and pinned in advance.
+#
+# FA geometry is scaled for this benchmark's 128-dimensional residual width:
+# four 32-dimensional value heads give a 128-dimensional value space, while
+# kernel_multiplier=2 gives 64-dimensional Q/K features per head. That is the
+# whole claim; the paper should say exactly this and no more.
+#
+# In particular it is NOT "we matched the other attention models" and NOT "we
+# reproduced the authors' head geometry". These are not the same quantity:
+#
+#   model               model width  heads  value dim/head  value width  value/model  kernel Q/K dim/head
+#   transformer / gpt           128      8              16          128        1.00x                   16
+#   fa_* (here)                 128      4              32          128        1.00x                   64
+#   authors' processor          768     16              64         1024        1.33x                  128
+#
+# The kernel dim is dim_head * kernel_multiplier (see LowRankKernel construction
+# in src/models/fa.py), so fa_dim_head 32 yields a 128-wide value space and
+# 64-dim Q/K per head.
+#
+# The authors' 64 was never used at a 128-wide model. Their processor carries a
+# 768-wide residual stream: external/cafa-authors/configs/era5-EPD-240121-*.yml
+# sets model.latent_dim: 768, which weather_transformer.py passes to
+# FactFormerS2 as `dim` and on to FABlockS2 as the residual/channel width. The
+# 384 in that config is model.processor.latent_dim -- the PoolingReducer
+# bottleneck the axial kernels are computed in, not the model width. So their
+# 16 x 64 = 1024 of value width is ~1.33x the residual width (1024 / 768), not
+# 2.7x. They do indeed not hold heads x dim_head = width, but only mildly; in
+# their smaller 512-wide config (era5-EPD-6432-*.yml) the same 1024 is 2.0x.
+#
+# Either way, keeping 64 while shrinking heads and width to 128 would reproduce
+# neither their ratio nor their scale. 4 x 32 is a benchmark-specific scaling
+# choice -- a closed geometry for a 128-wide model -- not an invariant inherited
+# from the authors' substantially larger 768-wide processor.
+#
+# Raising transformer/gpt to 32 instead is worse: at width 128 that means 8 -> 4
+# heads, which changes the attention factorization rather than the head size;
+# keeping 8 heads would force width 256 and invalidate every baseline's
+# parameter count and FFN. Neither buys a fairer comparison.
+#
+# Pinned in advance. --fa-dim-head-ablation runs {16, 32, 64} at fixed heads=4
+# and multiplier=2 on one representative cell to show 32 is not arbitrary; the
+# main table stays 32 and is NOT selected from that sweep on test data.
+
+model:
+  variant: fa_2d
+  fa_heads: 4
+  fa_dim_head: 32
+  fa_kernel_multiplier: 2
+  fa_qk_norm: true
+  attention:
+    dropout: 0.0

@@ -1,0 +1,5 @@
+# Preserve archived evidence bytes so SHA-256 manifests survive every clone.
+results/** -text
+artifacts/** -text
+docs/audit/** -text
+tests/fixtures/** -text

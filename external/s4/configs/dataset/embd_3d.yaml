@@ -1,0 +1,18 @@
+_name_: embd_3d
+imports_dir: /root/data/imports
+exports_dir: /root/data/exports
+start: '2008-01-01'
+end:   '2025-05-01'
+input_len: 36
+horizon: 1
+target: both
+split_train_end: '2023-12-01'
+split_val_start: '2024-01-01'
+split_val_end:   '2024-12-01'
+split_test_start: '2025-01-01'
+split_test_end:   '2025-05-01'
+state_emb_dim: 8
+commodity_emb_dim: 32
+flow_emb_dim: 2
+
+

@@ -1,0 +1,9 @@
+# Authors-kernel CaFA adapter (State + Commodity axes).
+model:
+  variant: authors_cafa_3d
+  authors_cafa_heads: 4
+  authors_cafa_dim_head: 32
+  authors_cafa_kernel_multiplier: 2
+  authors_cafa_qk_norm: true
+  attention:
+    dropout: 0.0

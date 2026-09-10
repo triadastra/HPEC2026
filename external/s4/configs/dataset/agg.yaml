@@ -1,0 +1,15 @@
+_name_: agg
+# Use multivariate features across all provided numeric columns
+size: [36, 12, 12]  # [seq_len, label_len, pred_len]
+features: 'M'
+target: 'Total Vessel Value ($US)'
+variant: 0
+scale: True
+inverse: False
+timeenc: 1
+eval_stamp: False
+eval_mask: False
+freq: 'M'
+__l_max: ${eval:${.size.0}+${.size.2}}
+data_dir: /root/s4
+

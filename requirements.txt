@@ -1,0 +1,34 @@
+# Core dependencies
+# Versions below are pinned to the training-env versions used to produce the
+# reported results. Loosen at your own risk.
+torch==2.9.1
+numpy==1.26.4
+pandas==2.3.0
+scikit-learn==1.2.2
+# Direct dependency of scripts/significance_tests.py (t-distribution tails for
+# DM and the TOST equivalence table). It also arrives transitively via
+# scikit-learn, but the significance suite imports it itself and
+# src/utils/run_manifest.py already fingerprints it as part of the environment
+# contract, so pin it explicitly.
+scipy==1.11.4
+
+# Models
+xgboost==3.2.0
+lightgbm==4.6.0
+transformers>=4.20.0  # For GPT model
+
+# Utilities
+einops==0.8.0
+pyyaml==6.0.2
+tqdm==4.67.1
+packaging>=24.0
+ninja>=1.11.0
+matplotlib==3.7.1
+seaborn==0.13.2
+
+# Jupyter
+jupyter>=1.0.0
+ipywidgets>=7.6.0
+
+# Optional: accelerate for faster training
+# accelerate>=0.20.0

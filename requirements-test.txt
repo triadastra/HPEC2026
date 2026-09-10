@@ -1,0 +1,4 @@
+-r requirements.txt
+pytest==9.1.1
+huggingface_hub==1.30.0
+pytorch_lightning==2.6.5

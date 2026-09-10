@@ -1,0 +1,955 @@
+{
+  "snapshot": "51e064a2f8e1af1ff867794b5ce8aeeade4692cd",
+  "sessions": {
+    "main": {
+      "counts": {
+        "declared": 477,
+        "npz_pipeline": 477,
+        "fresh_model_session": 108,
+        "completion_records": 477,
+        "fingerprints_match": 477,
+        "checkpoints": 477,
+        "checkpoint_lfs_sha256_match": 477,
+        "curves": 477,
+        "fresh_model_session_valid": 108
+      },
+      "models": {
+        "gru": 99,
+        "lstm": 99,
+        "transformer": 99,
+        "s4": 27,
+        "mamba2": 63,
+        "mamba3": 63,
+        "mamba_nd": 9,
+        "s4nd": 18
+      },
+      "cost_status": {
+        "measured": 342,
+        "partial": 135
+      },
+      "known_incomplete_costs_marked_measured": {
+        "gru": 99,
+        "lstm": 99,
+        "s4": 27,
+        "s4nd": 18
+      },
+      "issues": []
+    },
+    "exp0": {
+      "counts": {
+        "declared": 195,
+        "npz_pipeline": 195,
+        "fresh_model_session": 40,
+        "completion_records": 195,
+        "fingerprints_match": 195,
+        "checkpoints": 195,
+        "checkpoint_lfs_sha256_match": 195,
+        "curves": 195,
+        "fresh_model_session_valid": 40
+      },
+      "models": {
+        "gru": 55,
+        "lstm": 20,
+        "transformer": 25,
+        "s4": 15,
+        "mamba2": 20,
+        "mamba3": 35,
+        "mamba_nd": 5,
+        "s4nd": 20
+      },
+      "cost_status": {
+        "measured": 135,
+        "partial": 60
+      },
+      "known_incomplete_costs_marked_measured": {
+        "gru": 55,
+        "lstm": 20,
+        "s4": 15,
+        "s4nd": 20
+      },
+      "issues": []
+    },
+    "exp0_fa": {
+      "counts": {
+        "declared": 25,
+        "npz_pipeline": 25,
+        "fresh_model_session": 0,
+        "completion_records": 25,
+        "fingerprints_match": 25,
+        "checkpoints": 25,
+        "checkpoint_lfs_sha256_match": 25,
+        "curves": 25
+      },
+      "models": {
+        "gru": 5,
+        "lstm": 5,
+        "transformer": 5,
+        "mamba2": 5,
+        "mamba3": 5
+      },
+      "cost_status": {
+        "measured": 15,
+        "partial": 10
+      },
+      "known_incomplete_costs_marked_measured": {
+        "gru": 5,
+        "lstm": 5
+      },
+      "issues": []
+    },
+    "exp7_exp8_operator_study/exp7": {
+      "counts": {
+        "declared": 27,
+        "npz_pipeline": 27,
+        "fresh_model_session": 0,
+        "completion_records": 27,
+        "fingerprints_match": 27,
+        "checkpoints": 27,
+        "checkpoint_lfs_sha256_match": 27,
+        "curves": 27
+      },
+      "models": {
+        "gru": 9,
+        "lstm": 9,
+        "transformer": 9
+      },
+      "cost_status": {
+        "measured": 27
+      },
+      "known_incomplete_costs_marked_measured": {
+        "gru": 9,
+        "lstm": 9
+      },
+      "issues": []
+    },
+    "exp7_exp8_operator_study/exp8": {
+      "counts": {
+        "declared": 27,
+        "npz_pipeline": 27,
+        "fresh_model_session": 0,
+        "completion_records": 27,
+        "fingerprints_match": 27,
+        "checkpoints": 27,
+        "checkpoint_lfs_sha256_match": 27,
+        "curves": 27
+      },
+      "models": {
+        "gru": 9,
+        "lstm": 9,
+        "transformer": 9
+      },
+      "cost_status": {
+        "measured": 27
+      },
+      "known_incomplete_costs_marked_measured": {
+        "gru": 9,
+        "lstm": 9
+      },
+      "issues": []
+    },
+    "exp7_exp8_operator_study/sig_backfill": {
+      "counts": {
+        "declared": 81,
+        "npz_pipeline": 81,
+        "fresh_model_session": 0,
+        "completion_records": 28,
+        "fingerprints_match": 28,
+        "checkpoints": 28,
+        "checkpoint_lfs_sha256_match": 28,
+        "curves": 28
+      },
+      "models": {
+        "gru": 21,
+        "lstm": 21,
+        "transformer": 21,
+        "s4": 3,
+        "mamba2": 3,
+        "mamba3": 3,
+        "mamba_nd": 9
+      },
+      "cost_status": {
+        "measured": 28
+      },
+      "known_incomplete_costs_marked_measured": {
+        "gru": 12,
+        "lstm": 8
+      },
+      "issues": [
+        [
+          "gru_embeddings_1d_s947",
+          "missing completion"
+        ],
+        [
+          "lstm_embeddings_1d_s947",
+          "missing completion"
+        ],
+        [
+          "transformer_embeddings_1d_s947",
+          "missing completion"
+        ],
+        [
+          "s4_embeddings_1d_s947",
+          "missing completion"
+        ],
+        [
+          "mamba2_embeddings_1d_s947",
+          "missing completion"
+        ],
+        [
+          "mamba3_embeddings_1d_s947",
+          "missing completion"
+        ],
+        [
+          "gru_asa_2d_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "gru_fa_2d_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_2d_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_2d_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_2d_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_2d_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "mamba_nd_grid_2d_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "mamba_nd_grid_3d_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "mamba_nd_grid_4d_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "gru_embeddings_1d_s732",
+          "missing completion"
+        ],
+        [
+          "lstm_embeddings_1d_s732",
+          "missing completion"
+        ],
+        [
+          "transformer_embeddings_1d_s732",
+          "missing completion"
+        ],
+        [
+          "s4_embeddings_1d_s732",
+          "missing completion"
+        ],
+        [
+          "mamba2_embeddings_1d_s732",
+          "missing completion"
+        ],
+        [
+          "mamba3_embeddings_1d_s732",
+          "missing completion"
+        ],
+        [
+          "gru_asa_2d_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "gru_fa_2d_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_2d_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_4d_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_2d_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_2d_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_2d_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "mamba_nd_grid_2d_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "mamba_nd_grid_3d_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "mamba_nd_grid_4d_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "gru_embeddings_1d_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_embeddings_1d_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_embeddings_1d_s619",
+          "missing completion"
+        ],
+        [
+          "s4_embeddings_1d_s619",
+          "missing completion"
+        ],
+        [
+          "mamba2_embeddings_1d_s619",
+          "missing completion"
+        ],
+        [
+          "mamba3_embeddings_1d_s619",
+          "missing completion"
+        ],
+        [
+          "gru_asa_2d_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "gru_fa_2d_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_2d_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_3d_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_4d_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_2d_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_4d_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_2d_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_3d_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_4d_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_2d_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_3d_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_4d_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "mamba_nd_grid_2d_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "mamba_nd_grid_3d_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "mamba_nd_grid_4d_embeddings_s619",
+          "missing completion"
+        ]
+      ]
+    },
+    "exp7_exp8_operator_study/final/new_runs/sig_backfill_id": {
+      "counts": {
+        "declared": 108,
+        "npz_pipeline": 108,
+        "fresh_model_session": 0,
+        "completion_records": 3,
+        "fingerprints_match": 3,
+        "checkpoints": 3,
+        "checkpoint_lfs_sha256_match": 3,
+        "curves": 3
+      },
+      "models": {
+        "gru": 36,
+        "lstm": 36,
+        "transformer": 36
+      },
+      "cost_status": {
+        "measured": 3
+      },
+      "known_incomplete_costs_marked_measured": {},
+      "issues": [
+        [
+          "gru_asa_2d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "gru_asa_3d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "gru_asa_4d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "gru_fa_2d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "gru_fa_3d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "gru_fa_4d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_2d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_3d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_4d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_2d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_3d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_4d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_3d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_4d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_2d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_3d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_4d_id_embeddings_s947",
+          "missing completion"
+        ],
+        [
+          "gru_asa_2d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "gru_asa_3d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "gru_asa_4d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "gru_fa_2d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "gru_fa_3d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "gru_fa_4d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_2d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_3d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_4d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_2d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_3d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_4d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_2d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_3d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_4d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_2d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_3d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_4d_id_onehot_s947",
+          "missing completion"
+        ],
+        [
+          "gru_asa_2d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "gru_asa_3d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "gru_asa_4d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "gru_fa_2d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "gru_fa_3d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "gru_fa_4d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_2d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_3d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_4d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_2d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_3d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_4d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_3d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_4d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_2d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_3d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_4d_id_embeddings_s732",
+          "missing completion"
+        ],
+        [
+          "gru_asa_2d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "gru_asa_3d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "gru_asa_4d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "gru_fa_2d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "gru_fa_3d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "gru_fa_4d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_2d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_3d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_4d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_2d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_3d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_4d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_2d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_3d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_4d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_2d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_3d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_4d_id_onehot_s732",
+          "missing completion"
+        ],
+        [
+          "gru_asa_2d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "gru_asa_3d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "gru_asa_4d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "gru_fa_2d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "gru_fa_3d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "gru_fa_4d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_2d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_3d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_4d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_2d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_3d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_4d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_3d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_4d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_2d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_3d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_4d_id_embeddings_s619",
+          "missing completion"
+        ],
+        [
+          "gru_asa_2d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "gru_asa_3d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "gru_asa_4d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "gru_fa_2d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "gru_fa_3d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "gru_fa_4d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_2d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_3d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_asa_4d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_2d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_3d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "lstm_fa_4d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_2d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_3d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_asa_4d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_2d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_3d_id_onehot_s619",
+          "missing completion"
+        ],
+        [
+          "transformer_fa_4d_id_onehot_s619",
+          "missing completion"
+        ]
+      ]
+    }
+  },
+  "lr": {
+    "exp0": {
+      "seeds": [
+        947
+      ],
+      "official": false,
+      "diverged": {},
+      "selected_recomputed_mismatches": [],
+      "keys": [
+        "schema_version",
+        "rule",
+        "window_epochs_requested",
+        "stability_fraction",
+        "grid",
+        "seeds",
+        "official",
+        "selected",
+        "diverged",
+        "dim_transfer",
+        "transfer_checks",
+        "diagnostics",
+        "sources"
+      ],
+      "unstable": null
+    },
+    "exp0_fa": {
+      "seeds": [
+        947
+      ],
+      "official": true,
+      "diverged": {},
+      "selected_recomputed_mismatches": [],
+      "keys": [
+        "schema_version",
+        "rule",
+        "window_epochs_requested",
+        "stability_fraction",
+        "grid",
+        "seeds",
+        "official",
+        "selected",
+        "diverged",
+        "dim_transfer",
+        "transfer_checks",
+        "diagnostics",
+        "sources"
+      ],
+      "unstable": null
+    }
+  },
+  "all_records": {
+    "counts": {
+      "records": 801,
+      "checkpoints": 786,
+      "sha256_matches": 786
+    },
+    "issues": [
+      [
+        "exp7_exp8_operator_study/source/provenance/exp7_manifest_backup/gru_fa_local_2d_embeddings_s947",
+        "no checkpoint in same directory"
+      ],
+      [
+        "exp7_exp8_operator_study/source/provenance/exp7_manifest_backup/lstm_fa_local_2d_embeddings_s947",
+        "no checkpoint in same directory"
+      ],
+      [
+        "exp7_exp8_operator_study/source/provenance/exp7_manifest_backup/transformer_fa_local_4d_embeddings_s947",
+        "no checkpoint in same directory"
+      ],
+      [
+        "exp7_exp8_operator_study/source/provenance/exp7_manifest_backup/gru_fa_local_4d_embeddings_s732",
+        "no checkpoint in same directory"
+      ],
+      [
+        "exp7_exp8_operator_study/source/provenance/exp7_manifest_backup/gru_fa_local_3d_embeddings_s947",
+        "no checkpoint in same directory"
+      ],
+      [
+        "exp7_exp8_operator_study/source/provenance/exp7_manifest_backup/lstm_fa_local_3d_embeddings_s947",
+        "no checkpoint in same directory"
+      ],
+      [
+        "exp7_exp8_operator_study/source/provenance/exp7_manifest_backup/lstm_fa_local_4d_embeddings_s732",
+        "no checkpoint in same directory"
+      ],
+      [
+        "exp7_exp8_operator_study/source/provenance/exp7_manifest_backup/transformer_fa_local_2d_embeddings_s947",
+        "no checkpoint in same directory"
+      ],
+      [
+        "exp7_exp8_operator_study/source/provenance/exp7_manifest_backup/gru_fa_local_4d_embeddings_s947",
+        "no checkpoint in same directory"
+      ],
+      [
+        "exp7_exp8_operator_study/source/provenance/exp7_manifest_backup/gru_fa_local_3d_embeddings_s732",
+        "no checkpoint in same directory"
+      ],
+      [
+        "exp7_exp8_operator_study/source/provenance/exp7_manifest_backup/lstm_fa_local_3d_embeddings_s732",
+        "no checkpoint in same directory"
+      ],
+      [
+        "exp7_exp8_operator_study/source/provenance/exp7_manifest_backup/lstm_fa_local_4d_embeddings_s947",
+        "no checkpoint in same directory"
+      ],
+      [
+        "exp7_exp8_operator_study/source/provenance/exp7_manifest_backup/transformer_fa_local_3d_embeddings_s947",
+        "no checkpoint in same directory"
+      ],
+      [
+        "exp7_exp8_operator_study/source/provenance/exp7_manifest_backup/gru_fa_local_2d_embeddings_s732",
+        "no checkpoint in same directory"
+      ],
+      [
+        "exp7_exp8_operator_study/source/provenance/exp7_manifest_backup/lstm_fa_local_2d_embeddings_s732",
+        "no checkpoint in same directory"
+      ]
+    ]
+  }
+}

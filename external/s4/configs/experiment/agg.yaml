@@ -1,0 +1,47 @@
+# @package _global_
+defaults:
+  - /trainer: default
+  - /loader: default
+  - /task: regression
+  - /optimizer: adamw
+  - /scheduler: plateau
+  - /model: s4
+  - /dataset: agg_flat
+
+train:
+  monitor: val/loss
+  mode: min
+  interval: epoch
+  test: true
+
+trainer:
+  max_epochs: 200
+  accelerator: auto
+  devices: 1
+  precision: 16
+  val_check_interval: 0.5
+
+loader:
+  batch_size: 64
+  num_workers: 2
+  drop_last: false
+
+encoder: linear
+decoder:
+  _name_: sequence
+  mode: last
+
+model:
+  n_layers: 2
+  d_model: 64
+  dropout: 0.1
+
+task:
+  metrics:
+    - mse
+    - mae
+
+optimizer:
+  lr: 1e-3
+  weight_decay: 0.0
+

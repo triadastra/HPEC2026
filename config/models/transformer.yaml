@@ -1,0 +1,24 @@
+# Transformer model configuration
+
+model:
+  name: transformer
+
+  # Transformer-specific parameters
+  hidden_size: 128
+  num_layers: 4
+  num_heads: 8
+  dropout: 0.1  # standardized to 0.1 across the sweep (uniform regularization)
+  d_ff: 512  # Feed-forward dimension
+  activation: "gelu"  # "relu", "gelu"
+
+  # Position encoding
+  max_seq_len: 1000
+  positional_encoding: "sinusoidal"  # "sinusoidal", "learned"
+
+  # Note: variant is set separately via variant config files
+
+training:
+  # Transformers need a lower learning rate than RNNs. With base.yaml's
+  # lr=1e-3 plus Adam plus no warmup, training diverges to NaN on this
+  # dataset within the first epoch. 1e-4 is stable empirically.
+  lr: 0.0001

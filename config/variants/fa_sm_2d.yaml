@@ -1,0 +1,33 @@
+# Exp 7: the authors' FA operator over State, run on THEIR OWN softmax
+# kernel switch instead of their default LeakyReLU-gated path.
+#
+# WHY THIS ARM EXISTS. The submitted draft's "CaFA" numbers came from
+# fa_local_* (a local reimplementation), which deliberately used softmax so the
+# comparison against the axial baseline isolated the factorization -- see the
+# "Deviations from the paper, on purpose" block in src/models/fa_local.py. The
+# rerun's fa_* uses the authors' released components, which gate the raw
+# modulated scores with LeakyReLU instead. Those two arms therefore differ in
+# four ways at once (scripts/sweep.py, OPTIONAL_MECHS), so the mixer reversal
+# they show cannot be attributed to any single one. This arm changes ONLY the
+# kernel nonlinearity and holds PoolingReducer, the multi-head LowRankKernel,
+# the channel mixer and Q/K RMS norm fixed at the fa_* settings below.
+#
+# NOT a config-only flip. fa.py applies the LeakyReLU gate outside
+# LowRankKernel and then divides by a uniform categorical quadrature count;
+# both assume an unnormalised kernel. fa_kernel_softmax drops the gate and
+# swaps the divisor for a valid-mass renormaliser, so the arm measures the
+# nonlinearity rather than a ~1/line_count rescale. See FactorizedAttention.
+#
+# Geometry is copied verbatim from fa_2d.yaml and must stay that way: the
+# whole point is that only fa_kernel_softmax differs. Read the head-geometry
+# rationale there, not here.
+
+model:
+  variant: fa_sm_2d
+  fa_heads: 4
+  fa_dim_head: 32
+  fa_kernel_multiplier: 2
+  fa_qk_norm: true
+  fa_kernel_softmax: true
+  attention:
+    dropout: 0.0

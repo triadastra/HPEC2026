@@ -1,0 +1,4 @@
+_name_: s4_embeddings
+data_dir: /root
+input_len: 36
+lag_count: 12

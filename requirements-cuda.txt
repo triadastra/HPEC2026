@@ -1,0 +1,21 @@
+# Installable Linux/NVIDIA environment for the full HPEC roster.
+-r requirements.txt
+
+# Undeclared until 2026-08-27: without these, `pip install -r` yields an
+# environment in which 5 of the 8 roster models do not register, and
+# src/models/__init__.py reports it as a UserWarning rather than an error --
+# so the gap only surfaces once the sweep is running and every s4/s4nd/mamba
+# cell fails.
+#   pytorch_lightning  external/s4/src/callbacks/* -> s4, s4nd
+#   huggingface_hub    external/mamba/mamba_ssm/modules/mamba2.py -> mamba2/3,
+#                      mamba_nd. It also arrives transitively via transformers,
+#                      which requirements.txt pins "For GPT model" -- too
+#                      indirect to rely on for half the roster.
+pytorch_lightning>=2.0.0
+huggingface_hub>=0.20.0
+
+# Vendored external/mamba runtime dependencies (Mamba-2/3 and Mamba-ND).
+triton>=3.5.0
+tilelang==0.1.8
+apache-tvm-ffi<=0.1.9
+quack-kernels>=0.3.4

@@ -1,0 +1,67 @@
+# @package _global_
+# REAL DSS (Gupta et al. 2022): complex-diagonal SSM kernel (disc=dss), run through
+# the canonical pipeline like the rest of the S4 family. Capacity-matched: d_model
+# 128, d_state 128, dropout 0.1, AdamW + wd 1e-4, fp32, batch 64. Per-series (1-D),
+# learned trade-id embeddings (state 8 / commodity 32 / flow 2).
+defaults:
+  - /trainer: default
+  - /loader: default
+  - /task: regression
+  - /optimizer: adamw
+  - /scheduler: plateau
+  - /model: s4
+  - /dataset: s4_embeddings
+  - override /model/layer: dss
+
+encoder:
+  - _name_: tradeid
+    d_state: 8
+    d_comm: 32
+    d_flow: 2
+  - linear
+
+decoder:
+  _name_: sequence
+  mode: last
+
+model:
+  n_layers: 4
+  d_model: 128
+  dropout: 0.1
+  prenorm: true
+  transposed: false
+  layer:
+    d_state: 128
+    bidirectional: false
+
+loader:
+  batch_size: 64
+  num_workers: 0
+  drop_last: false
+loader_train:
+  batch_size: 64
+
+optimizer:
+  lr: 1e-3
+  weight_decay: 1e-4
+
+train:
+  monitor: val/loss
+  mode: min
+  interval: epoch
+  max_steps: null
+  test: true
+  seed: 1337
+
+trainer:
+  max_epochs: 200
+  accelerator: auto
+  devices: 1
+  precision: 32
+  val_check_interval: 1.0
+
+dataset:
+  _name_: s4_embeddings
+  data_dir: /root
+  input_len: 36
+  lag_count: 12

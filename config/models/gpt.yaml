@@ -1,0 +1,22 @@
+# GPT (decoder-only causal Transformer) model configuration.
+#
+# This is a causal-masked Transformer that regresses the next single step
+# from the last token — NOT an autoregressive generative LM. No temperature
+# / top-k / top-p (those never existed in the paper code).
+#
+# Width standardized to d_model=128 (FFN=512, 4x ratio) to capacity-match the
+# RNN/Transformer/S4 baselines for a fair architectural comparison. The paper
+# original used d_model=256 / mlp_ratio=3.0 (=768); see docs/MODEL_DIFFS.md.
+
+model:
+  name: gpt
+
+  # GPT architecture (capacity-matched to baselines at d_model=128)
+  d_model: 128
+  nhead: 8
+  num_layers: 4
+  mlp_ratio: 4.0   # MLP hidden = d_model * mlp_ratio = 512 (matches Transformer d_ff)
+  dropout: 0.1  # standardized to 0.1 across the sweep (uniform regularization)
+
+  # Note: variant (onehot | embeddings) is set via config/variants/*.yaml.
+  # GPT has no combo (cross_attention / film_attention) variant in the paper.

@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Please cite the HPEC 2026 paper when using this benchmark."
+title: "Are Multidimensional Models Worth Their Computational Cost in Demand Forecasting?"
+type: software
+authors:
+  - family-names: Fan
+    given-names: Cheng-Jui
+  - family-names: Aristov
+    given-names: Nikolay
+  - family-names: Dugundji
+    given-names: Elenna R.
+license: MIT

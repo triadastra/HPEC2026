@@ -1,0 +1,13 @@
+# LSTM model configuration
+
+model:
+  name: lstm
+
+  # LSTM-specific parameters
+  hidden_size: 128
+  num_layers: 4
+  dropout: 0.1  # standardized to 0.1 across the sweep (uniform regularization)
+  bidirectional: false
+
+  # Note: variant is set separately via variant config files
+  # Options: onehot, embeddings, cross_attention, film_attention

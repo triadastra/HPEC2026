@@ -1,0 +1,2 @@
+_name_: s4_feat_embeddings
+tensors: /root/full/ext/data/processed/feature_tensors.pt

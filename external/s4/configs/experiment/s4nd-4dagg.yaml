@@ -1,0 +1,61 @@
+# @package _global_
+defaults:
+  - /trainer: default
+  - /loader: default
+  - /task: regression
+  - /optimizer: adamw
+  - /scheduler: plateau
+  - /model: s4
+  - /dataset: s4nd_agg4d
+  - override /model/layer: s4nd
+
+encoder:
+  - _name_: cfid
+    learn_flow: true
+    d_flow: 2
+    flow_init: normal
+    flow_std: 0.02
+  - linear   # project numeric+embeddings to d_model
+decoder:
+  _name_: sequence
+  mode: last
+
+model:
+  n_layers: 4
+  d_model: 128
+  dropout: 0.1
+  prenorm: true
+  transposed: false
+  layer:
+    d_state: 64
+    bidirectional: true
+    dim: 3
+    contract_version: 1
+
+loader:
+  batch_size: 1024
+  num_workers: 20
+  drop_last: false
+
+loader_train:
+  batch_size: 16
+
+optimizer:
+  lr: 1e-3
+  weight_decay: 1e-4
+
+train:
+  monitor: val/loss
+  mode: min
+  interval: epoch
+  max_steps: null
+  test: true
+  seed: 1337
+
+trainer:
+  max_epochs: 200
+  accelerator: auto
+  devices: 1
+  precision: 16
+  val_check_interval: 0.5
+
