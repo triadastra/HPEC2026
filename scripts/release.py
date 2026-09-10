@@ -62,7 +62,7 @@ def download_data(npz):
         raise ValueError("dataset sidecar checksum mismatch")
     problem = dataset_metadata_problem(json.loads(sidecar.read_text()))
     if problem:
-        raise ValueError(problem + "; use rebuild-data for a new cohort or obtain the exact corrected training inputs. See REPRODUCING.md.")
+        raise ValueError(problem + "; use rebuild-data for a new cohort or obtain the exact corrected training inputs. See README.md.")
     downloaded = {}
     for filename, expected in dataset["files"].items():
         path = Path(hf_hub_download(dataset["repo_id"], filename, repo_type="dataset",
@@ -178,7 +178,7 @@ def main():
         print(f"{len(runs)} planned runs -> {out}. Actual scheduling derives the cohort from the input lattice.")
     else:
         if not args.npz.is_file() or not args.npz.with_suffix(".json").is_file():
-            raise ValueError("Missing Census NPZ and matching JSON. See REPRODUCING.md for the archived dataset version mismatch.")
+            raise ValueError("Missing Census NPZ and matching JSON. See README.md for the archived dataset version mismatch.")
         from src.data.census_loader import CensusLattice, census_config_from_config
         from src.utils import compose_data_config
         lattice = CensusLattice(census_config_from_config(compose_data_config(), npz=str(args.npz)))

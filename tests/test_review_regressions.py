@@ -696,7 +696,7 @@ def test_the_builder_and_the_docs_agree_on_the_source_filenames():
     repo = Path(__file__).resolve().parent.parent
     prefixes = {prefix for _, prefix in FLOWS.values()}
     assert prefixes == {"PORTHS6MM", "PORTHS6XM"}
-    for doc in ("README.md", "data/README.md", "PLAN.md"):
+    for doc in ("README.md",):
         text = (repo / doc).read_text()
         if "PORTHS6" not in text:
             continue
@@ -712,7 +712,7 @@ def test_the_api_fetcher_is_not_mistaken_for_the_lattice_source():
     census_port/. Nothing consumes the fetcher's output, and the docs must say
     so rather than leaving the name to imply otherwise."""
     repo = Path(__file__).resolve().parent.parent
-    text = (repo / "data/README.md").read_text()
+    text = (repo / "README.md").read_text()
     assert "fetch_census_ports.py" in text
     assert "not" in text.lower().split("fetch_census_ports.py")[1][:120].lower()
 

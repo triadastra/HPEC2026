@@ -391,7 +391,7 @@ def test_the_catalog_claim_about_baselines_is_true():
     boundaries. What it did not say is which panel, and the aggregate panel
     under that same fixed split had no anchor at all. Panel and split scheme
     are separate axes, and the sentence only pinned one of them."""
-    catalog = (REPO / "catalog.md").read_text()
+    catalog = (REPO / "README.md").read_text()
     assert "fixed split" in catalog
     source = (REPO / "scripts" / "evaluate.py").read_text()
     assert "eval_baseline(baseline, cl_agg, dev)" in source

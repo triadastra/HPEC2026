@@ -11,8 +11,8 @@ models on monthly U.S. Census merchandise-trade data.
 
 **[Hugging Face Dataset](https://huggingface.co/datasets/Celsia/HPEC2026)** ·
 **[Hugging Face Models & Checkpoints](https://huggingface.co/Celsia/HPEC2026)** ·
-**[Result Tables](results/README.md)** ·
-**[Reproduction Guide](REPRODUCING.md)**
+**[Result Tables](results/)** ·
+**[Reproduction Guide](#training-and-evaluation)**
 
 > This public-facing repository was cleaned using Anthropic Fable 5.1 and OpenAI Astra 6 to make the code easier for future researchers to run. No experiments or configurations have been altered.
 
@@ -28,7 +28,7 @@ The experiments cover fixed aggregate forecasts, rolling-origin aggregate
 forecasts, and forecasts for individual state–commodity–flow series. Evaluation
 includes MSE, MAE, RMSE, sMAPE, MASE, model size, inference FLOPs, and statistical
 comparisons. See the [archived tables](results/) and
-[statistical audit](docs/audit/significance-audit.md) for results and qualifications.
+[statistical audit data](docs/audit/significance_extended.json) for results and qualifications.
 
 ## Dataset
 
@@ -158,7 +158,9 @@ size is 32. Learning rates are selected per arm and model.
 
 Optional axial cross-attention (`aca`) or adding `fa_local` throughout the main
 roster costs **+144 runs** per mechanism. These extensions are outside the
-default matrix. See [catalog.md](catalog.md) for the detailed roster.
+default matrix. The optional identity-aware SSM hybrid arm adds **+72 runs**.
+Test 5 is retired; its historical emitter from `032c75f` is preserved in
+`tests/fixtures/retired_sweep.py.txt` for inspecting older runs.
 
 ## Training and evaluation
 
@@ -176,16 +178,38 @@ GPUS=0,1,2,3 RESET_MANIFEST=1 SESSION_ID=public-reproduction \
 This runs learning-rate selection, main-matrix training, evaluation, model-cost
 measurement, and the aggregate XGBoost baseline. Resume the same session without
 `RESET_MANIFEST=1`. Diagnostic runs, error dumps, and significance analysis are
-covered in [REPRODUCING.md](REPRODUCING.md).
+shown below.
 
 Evaluation retains per-run metrics and separate seed-averaged summaries. Strict
 manifest checks protect against incomplete or mismatched experiment outputs.
 Archived source/config/data fingerprints must be respected when replaying saved
 runs in a different checkout.
 
+### Diagnostics and source-data preparation
+
+Run diagnostics separately with the selected learning rates:
+
+```bash
+python scripts/sweep.py --tests 7 --gpus 0,1,2,3 --runs-dir outputs/exp7 \
+  --lr-selection outputs/sweep/exp0/lr_selection.json
+python scripts/sweep.py --tests 8 --gpus 0,1,2,3 --runs-dir outputs/exp8 \
+  --lr-selection outputs/sweep/exp0/lr_selection.json
+```
+
+For significance, use `scripts/hpec_pipeline.sh` with `STAGES=errors,sig` and
+`ERRDUMP_RUNS` naming the intended comparisons in the selected session.
+The aggregate statistical baselines are also evaluated on the fixed split.
+
+For a new experiment, `python scripts/release.py rebuild-data` downloads the
+pinned raw archives and rebuilds the lattice. It refuses to overwrite existing
+inputs. A rebuild is not automatically byte-identical to the archived training
+pair. The older research helper `fetch_census_ports.py` is not the bulk lattice
+source; this release uses `scripts/fetch_census_bulk.py` and
+`scripts/build_census_lattice.py`.
+
 ## Results and verification
 
-- [Result tables](results/README.md) include combined and per-run metrics,
+- [Result tables](results/) include combined and per-run metrics,
   aggregate and ND results, rolling-origin summaries, inference costs, and
   significance output. [SOURCES.json](results/SOURCES.json) records their
   original Hub paths and SHA-256 checksums.
@@ -194,14 +218,14 @@ runs in a different checkout.
 - The archived GRU reproduced its logged test MSE on the corrected lattice:
   approximately **0.69196 on CPU versus 0.69195 in the training log**, over
   **30,087 × 24 series-month observations**, each with two target channels.
-- The [completion audit](docs/audit/completed-training-audit.md) documents the
+- The [completion audit data](docs/audit/audit.json) documents the
   complete main checkpoint matrix. Remaining qualifications include unstable
   base LR-selection cells, four supplementary provenance gaps, and partial
   training-FLOP totals. Training costs and inference costs must be distinguished.
 
 These checks establish the tested code and artifact consistency; they do not
 constitute a fresh full GPU training or inference sweep. See
-[REPRODUCING.md](REPRODUCING.md) for the complete reproduction scope.
+the instructions and qualifications above for the reproduction scope.
 
 ## Repository layout
 
@@ -213,9 +237,8 @@ tests/           Regression tests and task-spec verification
 external/        Upstream model implementations and their licenses
 results/         Archived result tables with source and checksum records
 artifacts/       Learning-rate selections and diagnostic artifacts
-docs/            Release validation and saved research audits
+docs/            Machine-readable release validation and audit evidence
 SOURCE.json      Source provenance, Hugging Face revisions, and data checksums
-REPRODUCING.md   Detailed setup and reproduction instructions
 ```
 
 ## Citation and related work
