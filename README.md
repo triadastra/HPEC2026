@@ -253,9 +253,8 @@ SOURCE.json      Source provenance, Hugging Face revisions, and data checksums
 ```
 
 Machine-readable citation metadata is in [CITATION.cff](CITATION.cff).
-This work follows the WCTR 2026
-[Multidimensional Demand Forecasting](https://github.com/triadastra/Multidimensional-Demand-Forecasting)
-benchmark. Its earlier dataset and results use a different protocol and are not
+This work follows the WCTR 2026 benchmark, *Multidimensional Demand Forecasting
+Using State Space Models*. Its earlier dataset and results use a different protocol and are not
 Census benchmark evidence.
 
 ## Declaration on the use of generative AI
