@@ -1,0 +1,47 @@
+arm,label,MSE,MAE,provenance,seeds
+gru_asa_2d_embeddings,GRU ASA 2D,0.671980619430542,0.2406587451696396,archive declares fingerprint-validated inference,3
+gru_asa_3d_embeddings,GRU ASA 3D,0.681154727935791,0.2419351041316986,archive declares fingerprint-validated inference,3
+gru_asa_4d_embeddings,GRU ASA 4D,0.6828615665435791,0.23825795948505402,archive declares fingerprint-validated inference,3
+gru_embeddings_1d,GRU flat,0.6852146983146667,0.22183820605278015,revived; tree fingerprint not revalidated; five-decimal logged-MSE gate,3
+gru_fa_2d_embeddings,GRU FA 2D,0.8357311487197876,0.3561922311782837,archive declares fingerprint-validated inference,3
+gru_fa_3d_embeddings,GRU FA 3D,0.813389241695404,0.35182061791419983,archive declares fingerprint-validated inference,3
+gru_fa_4d_embeddings,GRU FA 4D,0.8247198462486267,0.32309675216674805,archive declares fingerprint-validated inference,3
+gru_fa_local_2d_embeddings,GRU CoFA 2D,0.6457529664039612,0.22779881954193115,archive declares fingerprint-validated inference,3
+gru_fa_local_3d_embeddings,GRU CoFA 3D,0.6835053563117981,0.23389632999897003,archive declares fingerprint-validated inference,3
+gru_fa_local_4d_embeddings,GRU CoFA 4D,0.6891138553619385,0.2353948950767517,archive declares fingerprint-validated inference,3
+gru_fa_sm_2d_embeddings,GRU FA-softmax 2D,0.6965744495391846,0.24190551042556763,archive declares fingerprint-validated inference,3
+gru_fa_sm_3d_embeddings,GRU FA-softmax 3D,0.7435749769210815,0.2454134076833725,archive declares fingerprint-validated inference,3
+gru_fa_sm_4d_embeddings,GRU FA-softmax 4D,0.7252069115638733,0.2581070065498352,archive declares fingerprint-validated inference,3
+lstm_asa_3d_embeddings,LSTM ASA 3D,0.8589701056480408,0.24973663687705994,archive declares fingerprint-validated inference,3
+lstm_asa_4d_embeddings,LSTM ASA 4D,0.8565378189086914,0.26707038283348083,archive declares fingerprint-validated inference,3
+lstm_embeddings_1d,LSTM flat,0.9033356308937073,0.250844806432724,revived; tree fingerprint not revalidated; five-decimal logged-MSE gate,3
+lstm_fa_3d_embeddings,LSTM FA 3D,0.8701470494270325,0.25057220458984375,archive declares fingerprint-validated inference,3
+lstm_fa_4d_embeddings,LSTM FA 4D,0.8651642203330994,0.2507511079311371,archive declares fingerprint-validated inference,3
+lstm_fa_local_2d_embeddings,LSTM CoFA 2D,0.8750459551811218,0.2501683831214905,archive declares fingerprint-validated inference,3
+lstm_fa_local_3d_embeddings,LSTM CoFA 3D,0.7744382619857788,0.27839842438697815,archive declares fingerprint-validated inference,3
+lstm_fa_local_4d_embeddings,LSTM CoFA 4D,0.7542049884796143,0.2883678376674652,archive declares fingerprint-validated inference,3
+lstm_fa_sm_2d_embeddings,LSTM FA-softmax 2D,0.8496608138084412,0.24643783271312714,archive declares fingerprint-validated inference,3
+lstm_fa_sm_3d_embeddings,LSTM FA-softmax 3D,0.8572328686714172,0.25448936223983765,archive declares fingerprint-validated inference,3
+lstm_fa_sm_4d_embeddings,LSTM FA-softmax 4D,0.8650956749916077,0.2627232074737549,archive declares fingerprint-validated inference,3
+mamba2_embeddings_1d,Mamba-2 flat,0.07205232977867126,0.15012270212173462,revived; tree fingerprint not revalidated; five-decimal logged-MSE gate,3
+mamba_nd_grid_2d_embeddings,Mamba-ND 2D,0.04868754372000694,0.1381303071975708,revived; tree fingerprint not revalidated; five-decimal logged-MSE gate,3
+mamba_nd_grid_3d_embeddings,Mamba-ND 3D,0.0487164631485939,0.13896822929382324,revived; tree fingerprint not revalidated; five-decimal logged-MSE gate,3
+mamba_nd_grid_4d_embeddings,Mamba-ND 4D,0.053875088691711426,0.15357165038585663,revived; tree fingerprint not revalidated; five-decimal logged-MSE gate,3
+s4_embeddings_1d,S4 flat,0.06205184757709503,0.14226195216178894,archive declares fingerprint-validated inference,3
+s4nd_grid_2d_embeddings,S4ND 2D,0.05544619262218475,0.14145541191101074,revived; tree fingerprint not revalidated; five-decimal logged-MSE gate,3
+s4nd_grid_3d_embeddings,S4ND 3D,0.04278403893113136,0.13483625650405884,revived; tree fingerprint not revalidated; five-decimal logged-MSE gate,3
+s4nd_grid_4d_embeddings,S4ND 4D,0.05098910629749298,0.14061295986175537,archive declares fingerprint-validated inference,3
+transformer_asa_2d_embeddings,Transformer ASA 2D,0.7358072996139526,0.24940459430217743,archive declares fingerprint-validated inference,3
+transformer_asa_2d_id_embeddings,Transformer ASA 2D + identity,0.7767128348350525,0.25112485885620117,archive declares fingerprint-validated inference,3
+transformer_asa_3d_embeddings,Transformer ASA 3D,0.7133445739746094,0.24465733766555786,archive declares fingerprint-validated inference,3
+transformer_asa_4d_embeddings,Transformer ASA 4D,0.9337072372436523,0.29409080743789673,archive declares fingerprint-validated inference,3
+transformer_embeddings_1d,Transformer flat,0.7773771286010742,0.24494023621082306,archive declares fingerprint-validated inference,3
+transformer_fa_3d_embeddings,Transformer FA 3D,0.7623969316482544,0.2388961762189865,archive declares fingerprint-validated inference,3
+transformer_fa_4d_embeddings,Transformer FA 4D,0.7877098917961121,0.25129908323287964,archive declares fingerprint-validated inference,3
+transformer_fa_local_2d_embeddings,Transformer CoFA 2D,0.6784138679504395,0.23096847534179688,archive declares fingerprint-validated inference,3
+transformer_fa_local_3d_embeddings,Transformer CoFA 3D,0.7436492443084717,0.23832212388515472,archive declares fingerprint-validated inference,3
+transformer_fa_local_4d_embeddings,Transformer CoFA 4D,0.6898147463798523,0.23263134062290192,archive declares fingerprint-validated inference,3
+transformer_fa_sm_2d_embeddings,Transformer FA-softmax 2D,0.7235651612281799,0.24387013912200928,archive declares fingerprint-validated inference,3
+transformer_fa_sm_3d_embeddings,Transformer FA-softmax 3D,0.787420392036438,0.2548142373561859,archive declares fingerprint-validated inference,3
+transformer_fa_sm_4d_embeddings,Transformer FA-softmax 4D,0.7690616250038147,0.25918054580688477,archive declares fingerprint-validated inference,3
+persistence,Persistence,0.05489160120487213,0.1418210119009018,archived baseline loss arrays,0

@@ -1,0 +1,14 @@
+{
+  "configurations": 46,
+  "unique_pairs": 1035,
+  "source_shape": [
+    30087,
+    24
+  ],
+  "archived_statistics_reproduced": 1035,
+  "revived_configurations": 8,
+  "DM_unadjusted_significant": 1013,
+  "DM_HAC3_Holm_all_significant": 965,
+  "paper_DM_unadjusted_significant": 134,
+  "paper_DM_HAC3_Holm136_significant": 130
+}

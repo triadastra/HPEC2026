@@ -1,0 +1,68 @@
+{
+  "source_files": [
+    {
+      "file": "results/gallery/inputs/SOURCES.json",
+      "sha256": "2a399d4280d4e1fd49ec31187214ee97e43abb01126a4077640f6387305af8b5"
+    },
+    {
+      "file": "results/gallery/inputs/lr_direction.csv",
+      "sha256": "cbe1c507753f2a272abb483d2fffda67b88b655ae77b6b8e532ddfda31862a7d"
+    },
+    {
+      "file": "results/gallery/inputs/loss_summaries.npz",
+      "sha256": "224751ddb10bb703a6ec4181f72d4d5ce774826da577ead6b843f9ad6c9a8f9d"
+    },
+    {
+      "file": "results/gallery/inputs/figure_inputs_archived.json",
+      "sha256": "442959e1b101eae09acea5cd1775d7a8d4a7172223fe7a6453c1c31ff48fd42d"
+    },
+    {
+      "file": "results/gallery/inputs/significance_all_pairs_archived.csv",
+      "sha256": "d4ac278710589b1c92cef144458decbb2373cdeac56784b7ac6940a51e4b34a8"
+    },
+    {
+      "file": "results/gallery/inputs/loss_provenance.json",
+      "sha256": "818f1805fa573702d8a147d2fcc51fe4b898df52af144c5964c748c3829ea479"
+    },
+    {
+      "file": "results/gallery/inputs/training_diagnostics.csv",
+      "sha256": "8af6361ce98c49d88326cb67ee774c343723ec17de1123f95b8e21b9e04dce2d"
+    },
+    {
+      "file": "results/gallery/inputs/xgboost_all.json",
+      "sha256": "70aa93370c7d158554b9bcb4ffbf3e97528811c09682746dfc949d6785499c3e"
+    },
+    {
+      "file": "results/flat_and_nd_results.csv",
+      "sha256": "3c4520a33e0f8d4535659f98916211b9c3c5bc4b8aa651cfb8e676a843c3b3f1"
+    },
+    {
+      "file": "results/aggregate_and_identity_results.csv",
+      "sha256": "29212212e6949cdda7bc2aff6b3cd34f81755ada35d1d7ec1300f5e3339d576d"
+    },
+    {
+      "file": "results/rolling_annual.csv",
+      "sha256": "27c78873fe0d7dec47486e77b5a9be5ca517b052d3bf85568c0961cd4608e22f"
+    },
+    {
+      "file": "results/rolling_pooled.csv",
+      "sha256": "6f53041763b4bdeeed6b523de4763fd994d53577bed4b69f790ab0f1d42bc820"
+    },
+    {
+      "file": "results/model_cost_FINAL.csv",
+      "sha256": "2187921136f9003c6970039869c84fc8a952e720a82595d38d44cb06e092b054"
+    },
+    {
+      "file": "artifacts/exp7/results.csv",
+      "sha256": "18eb7a88fca318659cd0f1523a3ba9c414d29fbb67da923d5fd554e39044b71b"
+    },
+    {
+      "file": "artifacts/exp8/results.csv",
+      "sha256": "22d0f4dee1b6278b88fa6092ec4132ee7c961b5d9bfb765e7edaafd3140364e8"
+    }
+  ],
+  "numpy": "1.26.4",
+  "scipy": "1.11.4",
+  "seed_sd_ddof": 0,
+  "dpi": 300
+}
