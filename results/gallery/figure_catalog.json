@@ -1,0 +1,107 @@
+[
+  {
+    "file": "heatmap_all_dm",
+    "title": "Diebold-Mariano: full signed magnitudes / 46 configurations",
+    "description": "Full linear color range, no magnitude clipping. Blue = row lower; red = row higher. Diagonal omitted. Signed DM statistic (squared loss)"
+  },
+  {
+    "file": "heatmap_all_wilcoxon",
+    "title": "Wilcoxon: full signed magnitudes / 46 configurations",
+    "description": "Full linear color range, no magnitude clipping. Blue = row lower; red = row higher. Diagonal omitted. Signed Wilcoxon z (per-series MAE)"
+  },
+  {
+    "file": "heatmap_all_mse_difference",
+    "title": "Absolute MSE differences / 46 configurations",
+    "description": "Full linear color range, no magnitude clipping. Blue = row lower; red = row higher. Diagonal omitted. MSE: row minus column"
+  },
+  {
+    "file": "heatmap_all_mse_relative",
+    "title": "Relative MSE differences / 46 configurations",
+    "description": "Full linear color range, no magnitude clipping. Blue = row lower; red = row higher. Diagonal omitted. MSE change relative to column (%)"
+  },
+  {
+    "file": "heatmap_all_hac_holm",
+    "title": "Difference-test sensitivity: HAC + Holm / 46 configurations",
+    "description": "46 configurations, 1,035 tests in this correction family. No equivalence inference from grey cells. HAC lag 3 + Holm: blue = row lower MSE; grey = not detected; red = row higher MSE"
+  },
+  {
+    "file": "heatmap_all_equivalence",
+    "title": "MSE equivalence: separate from difference tests / 46 configurations",
+    "description": "MSE TOST, unadjusted alpha 0.05; margin = 5% of COLUMN MSE; directional margins explain asymmetry. Blue = equivalence detected; grey = not detected"
+  },
+  {
+    "file": "heatmap_paper_dm",
+    "title": "Paper configurations: full DM magnitudes",
+    "description": "Full linear color range, no magnitude clipping. Blue = row lower; red = row higher. Diagonal omitted. Signed DM statistic (squared loss)"
+  },
+  {
+    "file": "heatmap_paper_wilcoxon",
+    "title": "Paper configurations: full Wilcoxon magnitudes",
+    "description": "Full linear color range, no magnitude clipping. Blue = row lower; red = row higher. Diagonal omitted. Signed Wilcoxon z (per-series MAE)"
+  },
+  {
+    "file": "heatmap_paper_hac_holm",
+    "title": "Paper configurations: HAC + Holm sensitivity",
+    "description": "17 configurations, 136 tests in this correction family. No equivalence inference from grey cells. HAC lag 3 + Holm: blue = row lower MSE; grey = not detected; red = row higher MSE"
+  },
+  {
+    "file": "aggregate_accuracy",
+    "title": "Fixed aggregate accuracy",
+    "description": "MSE and MAE; full uncertainty whiskers; all ten models."
+  },
+  {
+    "file": "aggregate_cost_accuracy",
+    "title": "Aggregate cost versus accuracy",
+    "description": "Neural costs retain archived profiling conventions; XGBoost is explicitly an analytical upper bound."
+  },
+  {
+    "file": "rolling_comparison",
+    "title": "Rolling-origin comparison",
+    "description": "All ten models across all six annual test folds."
+  },
+  {
+    "file": "encoder_comparison",
+    "title": "Embedding versus one-hot encoders",
+    "description": "No propagated uncertainty is presented as empirical paired-seed SD."
+  },
+  {
+    "file": "attention_ablation",
+    "title": "ASA, FA, FA-softmax and CoFA",
+    "description": "Independent panel scales; all uncertainty endpoints visible."
+  },
+  {
+    "file": "dimensionality",
+    "title": "Dimensionality comparison",
+    "description": "Flat, 2D, 3D, and 4D means and full SD whiskers."
+  },
+  {
+    "file": "series_cost_accuracy",
+    "title": "All-configuration cost versus accuracy",
+    "description": "Colors identify model families; full configuration identifiers and values are in all_results.csv."
+  },
+  {
+    "file": "series_ranking_01",
+    "title": "Series MSE ranking, page 1",
+    "description": "Descriptive ordering, not a statistical superiority claim. Full whiskers shown."
+  },
+  {
+    "file": "series_ranking_02",
+    "title": "Series MSE ranking, page 2",
+    "description": "Descriptive ordering, not a statistical superiority claim. Full whiskers shown."
+  },
+  {
+    "file": "series_ranking_03",
+    "title": "Series MSE ranking, page 3",
+    "description": "Descriptive ordering, not a statistical superiority claim. Full whiskers shown."
+  },
+  {
+    "file": "series_ranking_04",
+    "title": "Series MSE ranking, page 4",
+    "description": "Descriptive ordering, not a statistical superiority claim. Full whiskers shown."
+  },
+  {
+    "file": "learning_rate_diagnostics",
+    "title": "Learning-rate diagnostics",
+    "description": "Original categories are preserved verbatim; roster does not cover every model."
+  }
+]

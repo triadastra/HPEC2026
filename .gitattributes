@@ -3,3 +3,11 @@ results/** -text
 artifacts/** -text
 docs/audit/** -text
 tests/fixtures/** -text
+
+# Recovered CSV sources retain their original CRLF line endings.
+results/gallery/inputs/*.csv -text whitespace=cr-at-eol
+
+# These outputs are reproducible from scripts/results_gallery.py.
+results/gallery/figures/* linguist-generated=true
+results/gallery/tables/* linguist-generated=true
+results/gallery/index.html linguist-generated=true

@@ -1,0 +1,39 @@
+cell,lr,seed947,seed732,seed619,cell_verdict
+S4 flat,0.01,adequate,adequate,adequate,adequate
+S4ND 2-D,0.01,adequate,too low,adequate,adequate
+S4ND 3-D,0.01,adequate,adequate,adequate,adequate
+S4ND 4-D,0.01,adequate,adequate,too high,adequate
+Mamba-2 flat,0.01,adequate,adequate,adequate,adequate
+Mamba-ND 2-D,0.01,adequate,adequate,adequate,adequate
+Mamba-ND 3-D,0.01,adequate,adequate,adequate,adequate
+Mamba-ND 4-D,0.01,adequate,adequate,adequate,adequate
+GRU flat,0.0001,adequate,adequate,adequate,adequate
+GRU ASA 2-D,0.0003,adequate,adequate,adequate,adequate
+GRU ASA 3-D,0.0003,adequate,too high,adequate,adequate
+GRU ASA 4-D,0.0003,adequate,adequate,adequate,adequate
+GRU CoFA 2-D,0.0001,adequate,adequate,adequate,adequate
+GRU CoFA 3-D,0.0001,adequate,adequate,adequate,adequate
+GRU CoFA 4-D,0.0001,adequate,adequate,adequate,adequate
+GRU FA 2-D,0.01,too high,adequate,adequate,adequate
+GRU FA 3-D,0.01,too high,adequate,adequate,adequate
+GRU FA 4-D,0.01,adequate,too high,adequate,adequate
+LSTM flat,0.001,adequate,adequate,adequate,adequate
+LSTM ASA 2-D,0.0001,adequate,too low,adequate,adequate
+LSTM ASA 3-D,0.0001,adequate,adequate,adequate,adequate
+LSTM ASA 4-D,0.0001,adequate,too low,adequate,adequate
+LSTM CoFA 2-D,0.01,adequate,too low,adequate,adequate
+LSTM CoFA 3-D,0.01,adequate,adequate,adequate,adequate
+LSTM CoFA 4-D,0.01,adequate,adequate,adequate,adequate
+LSTM FA 2-D,0.001,adequate,adequate,adequate,adequate
+LSTM FA 3-D,0.001,adequate,adequate,adequate,adequate
+LSTM FA 4-D,0.001,adequate,adequate,adequate,adequate
+Tr flat,0.001,adequate,too high,too high,too high
+Tr ASA 2-D,0.001,too high,adequate,adequate,adequate
+Tr ASA 3-D,0.001,adequate,adequate,too high,adequate
+Tr ASA 4-D,0.001,too high,too high,adequate,too high
+Tr CoFA 2-D,0.0001,adequate,adequate,adequate,adequate
+Tr CoFA 3-D,0.0001,adequate,adequate,adequate,adequate
+Tr CoFA 4-D,0.0001,adequate,adequate,adequate,adequate
+Tr FA 2-D,0.0003,adequate,adequate,too high,adequate
+Tr FA 3-D,0.0003,adequate,adequate,adequate,adequate
+Tr FA 4-D,0.0003,adequate,adequate,adequate,adequate

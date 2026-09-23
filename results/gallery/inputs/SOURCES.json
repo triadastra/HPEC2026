@@ -1,0 +1,37 @@
+[
+  {
+    "file": "xgboost_all.json",
+    "source_archive_member": "xgboost_all.json",
+    "sha256": "70aa93370c7d158554b9bcb4ffbf3e97528811c09682746dfc949d6785499c3e"
+  },
+  {
+    "file": "figure_inputs_archived.json",
+    "source_archive_member": "FINAL_BATCH/code/fig_data.json",
+    "sha256": "442959e1b101eae09acea5cd1775d7a8d4a7172223fe7a6453c1c31ff48fd42d"
+  },
+  {
+    "file": "significance_all_pairs_archived.csv",
+    "source_archive_member": "FINAL_BATCH/significance_all_pairs.csv",
+    "sha256": "d4ac278710589b1c92cef144458decbb2373cdeac56784b7ac6940a51e4b34a8"
+  },
+  {
+    "file": "training_diagnostics.csv",
+    "source_archive_member": "FINAL_BATCH/training_diagnostics.csv",
+    "sha256": "8af6361ce98c49d88326cb67ee774c343723ec17de1123f95b8e21b9e04dce2d"
+  },
+  {
+    "file": "lr_direction.csv",
+    "source_archive_member": "FINAL_BATCH/lr_direction.csv",
+    "sha256": "cbe1c507753f2a272abb483d2fffda67b88b655ae77b6b8e532ddfda31862a7d"
+  },
+  {
+    "file": "loss_summaries.npz",
+    "source_archive_member": "errdump_ALL_final.npz (derived compact statistics)",
+    "sha256": "224751ddb10bb703a6ec4181f72d4d5ce774826da577ead6b843f9ad6c9a8f9d"
+  },
+  {
+    "file": "loss_provenance.json",
+    "source_archive_member": "errdump_ALL_final.npz (derived compact statistics)",
+    "sha256": "818f1805fa573702d8a147d2fcc51fe4b898df52af144c5964c748c3829ea479"
+  }
+]

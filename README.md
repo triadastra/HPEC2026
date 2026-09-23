@@ -12,6 +12,7 @@ models on monthly U.S. Census merchandise-trade data.
 **[Hugging Face Dataset](https://huggingface.co/datasets/Celsia/HPEC2026)** ·
 **[Hugging Face Models & Checkpoints](https://huggingface.co/Celsia/HPEC2026)** ·
 **[Result Tables](results/)** ·
+**[Full Figure Gallery & Excel Tables](results/gallery/README.md)** ·
 **[Reproduction Guide](#training-and-evaluation)**
 
 > This public-facing repository was cleaned using Anthropic Fable 5.1 and OpenAI Astra 6 to make the code easier for future researchers to run. No experiments or configurations have been altered.
@@ -29,6 +30,22 @@ forecasts, and forecasts for individual state–commodity–flow series. Evaluat
 includes MSE, MAE, RMSE, sMAPE, MASE, model size, inference FLOPs, and statistical
 comparisons. See the [archived tables](results/) and
 [statistical audit data](docs/audit/significance_extended.json) for results and qualifications.
+
+### Full-resolution supplementary results
+
+The [updated result gallery](results/gallery/README.md) contains **218 accuracy
+rows**, all **225 archived cost records**, full-magnitude **46-configuration
+heatmaps (1,035 pairwise comparisons)**, and the paper's 17-configuration views.
+Figures are available as 300-dpi PNGs and scalable SVG/PDF files, with an
+[Excel workbook](results/gallery/hpec_results.xlsx) and full-precision CSVs.
+
+The gallery separates effect sizes from significance, includes HAC/Holm
+sensitivity checks, and identifies recovered checkpoint-provenance limitations.
+It also clarifies that missing cost measurements are not zero: XGBoost is
+shown with an **analytical upper bound of 0.001 MFLOPs per joint forecast**,
+not a measured historical FLOP count. Original result tables and model
+experiments are unchanged. See the gallery's methods for the counting scope
+and statistical qualifications.
 
 ## Dataset
 

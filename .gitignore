@@ -107,3 +107,10 @@ data/comexstat/processed/
 .cache/
 *.npz
 release-checks/
+
+# Reproducible result-gallery inputs and local authoring dependencies.
+!results/gallery/inputs/loss_summaries.npz
+node_modules/
+/node_modules
+results/gallery/tables/workbook_data.json
+results/gallery/*.inspect.ndjson
